@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafetopía — Mejor Café de Santander 2025</title>
+  <meta name="description" content="Cafetopía es una cafetería de especialidad en Bucaramanga. Más de 13 métodos de filtrado, ambiente acogedor y el mejor café de Santander 2025." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #2D5016;
+      --green-mid:    #3D6B1F;
+      --green-olive:  #8FAF5A;
+      --green-light:  #B8D08A;
+      --cream:        #F5F8F0;
+      --cream-warm:   #EDF2E4;
+      --text-dark:    #1A2910;
+      --text-mid:     #3A4D2A;
+      --text-light:   #6B7F5A;
+      --white:        #FFFFFF;
+      --gold:         #C4A24A;
+      --shadow:       0 4px 24px rgba(45,80,22,0.10);
+      --shadow-lg:    0 12px 48px rgba(45,80,22,0.16);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(245,248,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(143,175,90,0.2);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--green-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--green-olive); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      color: var(--text-mid); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-dark); }
+    .nav-cta {
+      background: var(--green-dark); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 100px;
+      font-weight: 600 !important; transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-mid) !important; transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(45,80,22,0.88) 0%, rgba(61,107,31,0.72) 50%, rgba(143,175,90,0.40) 100%),
+        url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1800&q=80') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px;
+      position: relative;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--cream));
+    }
+    .hero-content { max-width: 780px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,162,74,0.2); border: 1px solid var(--gold);
+      color: #F0D87A; padding: 8px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-badge svg { width: 14px; height: 14px; fill: currentColor; }
+    .hero h1 {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      color: var(--white); line-height: 1.05; margin-bottom: 8px;
+    }
+    .hero h1 em { color: var(--green-light); font-style: italic; }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.82); font-weight: 300;
+      letter-spacing: 0.5px; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--white); color: var(--green-dark);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--green-dark);
+      padding: 28px 40px;
+      display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--green-light);
+      display: block; line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.65);
+      text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+    }
+    .stat-divider {
+      width: 1px; background: rgba(255,255,255,0.15);
+      height: 48px; align-self: center;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--green-olive);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--text-dark); line-height: 1.15; margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 1.05rem; color: var(--text-light);
+      line-height: 1.7; max-width: 560px;
+    }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative; border-radius: 24px; overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+    .about-badge-float {
+      position: absolute; bottom: 24px; left: 24px;
+      background: var(--white); border-radius: 16px; padding: 16px 20px;
+      box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .about-badge-icon {
+      width: 44px; height: 44px; background: var(--cream-warm);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .about-badge-text strong { display: block; font-size: 0.95rem; color: var(--text-dark); }
+    .about-badge-text span { font-size: 0.78rem; color: var(--text-light); }
+    .about-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px;
+    }
+    .feature-card {
+      background: var(--cream); border-radius: 16px; padding: 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .feature-icon {
+      font-size: 1.4rem; width: 40px; height: 40px;
+      background: var(--cream-warm); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .feature-card h4 { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+    .feature-card p { font-size: 0.78rem; color: var(--text-light); line-height: 1.4; }
+
+    /* ─── MENU ─── */
+    .menu { background: var(--cream); }
+    .menu-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .tab-btn {
+      padding: 10px 22px; border-radius: 100px; border: 2px solid var(--cream-warm);
+      background: var(--white); font-size: 0.85rem; font-weight: 600;
+      color: var(--text-mid); cursor: pointer; transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--green-dark); color: var(--white); border-color: var(--green-dark);
+    }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+    .menu-subgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 24px; }
+    .menu-cat-header { display: flex; align-items: center; gap: 14px; margin: 32px 0 14px; }
+    .menu-cat-header:first-child { margin-top: 0; }
+    .menu-cat-header h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--green-dark); white-space: nowrap; }
+    .menu-cat-header::after { content: ''; flex: 1; height: 1.5px; background: linear-gradient(to right, rgba(143,175,90,0.35), transparent); }
+    .menu-addon-box { background: var(--green-dark); border-radius: 16px; padding: 18px 22px; margin: 6px 0 28px; }
+    .menu-addon-box h4 { color: var(--green-light); font-family: 'Playfair Display', serif; margin-bottom: 10px; font-size: 0.95rem; }
+    .menu-addon-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.09); font-size: 0.83rem; color: rgba(255,255,255,0.82); }
+    .menu-addon-row:last-child { border-bottom: none; }
+    .menu-inline-note { font-size: 0.78rem; color: var(--text-light); padding: 6px 12px; background: var(--cream-warm); border-radius: 8px; border-left: 3px solid var(--green-olive); margin-bottom: 14px; display: inline-block; }
+    .menu-hero-img { width: 100%; height: 200px; object-fit: cover; border-radius: 20px; margin-bottom: 28px; }
+    .menu-photo-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 220px 220px; gap: 10px; margin-bottom: 36px; height: 450px; }
+    .menu-photo-grid .photo-main { grid-row: span 2; border-radius: 20px; overflow: hidden; }
+    .menu-photo-grid .photo-side { border-radius: 14px; overflow: hidden; }
+    .menu-photo-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+    .menu-photo-grid img:hover { transform: scale(1.05); }
+    @media (max-width: 640px) { .menu-photo-grid { grid-template-columns: 1fr; grid-template-rows: 240px; height: 240px; } .menu-photo-grid .photo-side { display: none; } }
+    .menu-card {
+      background: var(--white); border-radius: 20px; padding: 24px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 12px; transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(143,175,90,0.15);
+    }
+    .menu-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .menu-card-info { flex: 1; }
+    .menu-card-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+    .menu-card-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+    .menu-card-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 100px; margin-top: 8px;
+      background: var(--cream-warm); color: var(--green-mid);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .menu-price {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      font-weight: 700; color: var(--green-dark); white-space: nowrap;
+    }
+    .menu-note {
+      text-align: center; margin-top: 32px;
+      font-size: 0.85rem; color: var(--text-light);
+    }
+
+    .menu-metodos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+    .metodo-card { background: var(--white); border-radius: 16px; padding: 18px 16px; border: 1px solid rgba(143,175,90,0.15); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+    .metodo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .metodo-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .metodo-card-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
+    .metodo-card-desc { font-size: 0.73rem; color: var(--text-light); line-height: 1.45; margin-bottom: 10px; }
+    .metodo-prices { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .metodo-price-item { font-size: 0.8rem; font-weight: 600; color: var(--green-mid); background: var(--cream); padding: 3px 8px; border-radius: 100px; }
+    .especiales-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .especial-card { background: var(--white); border-radius: 24px; overflow: hidden; border: 1px solid rgba(143,175,90,0.15); }
+    .especial-img { width: 100%; height: 220px; object-fit: cover; }
+    .especial-body { padding: 22px; }
+    .especial-badge { display: inline-block; background: var(--cream-warm); color: var(--green-mid); font-size: 0.72rem; font-weight: 600; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .especial-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 6px; color: var(--text-dark); }
+    .especial-desc { font-size: 0.83rem; color: var(--text-light); line-height: 1.6; margin-bottom: 14px; }
+    .especial-price { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--green-dark); }
+    .linea-exotica-banner { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); border-radius: 20px; padding: 24px 28px; margin-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .linea-exotica-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); }
+    .linea-exotica-banner p { color: rgba(255,255,255,0.75); font-size: 0.85rem; margin-top: 4px; }
+    .linea-exotica-banner .price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--green-light); }
+    .menu-card-sm { padding: 14px 16px; }
+    .menu-card-sm .menu-card-name { font-size: 0.88rem; }
+    .menu-card-sm .menu-card-desc { font-size: 0.75rem; }
+    .licor-base-card { background: var(--white); border-radius: 16px; padding: 20px; border: 1px solid rgba(143,175,90,0.15); }
+    .licor-base-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+    .licor-base-price { color: var(--green-dark); font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; }
+    .licor-options { display: flex; flex-direction: column; gap: 4px; }
+    .licor-option { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-mid); padding: 3px 0; border-bottom: 1px solid rgba(143,175,90,0.15); }
+    .licor-option:last-child { border-bottom: none; }
+
+    /* ─── GALLERY ─── */
+    .gallery { background: var(--white); }
+    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 240px);
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 16px; overflow: hidden; cursor: pointer;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(45,80,22,0.5) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-instagram {
+      text-align: center; margin-top: 36px;
+    }
+    .ig-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737);
+      color: var(--white); padding: 14px 28px; border-radius: 100px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ig-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(193,53,132,0.3); }
+
+    /* ─── REVIEWS ─── */
+    .reviews { background: var(--cream); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+    }
+    .review-card {
+      background: var(--white); border-radius: 20px; padding: 28px;
+      border: 1px solid rgba(143,175,90,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .review-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1rem; line-height: 1.65; color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--cream-warm); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 700; color: var(--green-mid);
+      font-family: 'Playfair Display', serif;
+    }
+    .review-name strong { font-size: 0.9rem; display: block; }
+    .review-name span { font-size: 0.78rem; color: var(--text-light); }
+    .review-platform {
+      margin-left: auto; font-size: 0.72rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 100px;
+      background: var(--cream); color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .reviews-summary {
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      background: var(--green-dark); border-radius: 24px; padding: 32px 48px;
+      margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .summary-score { text-align: center; }
+    .summary-big {
+      font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;
+      color: var(--white); line-height: 1;
+    }
+    .summary-stars-big { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; margin: 4px 0; }
+    .summary-count { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+    .summary-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.15); }
+    .summary-facts { display: flex; flex-direction: column; gap: 8px; }
+    .summary-fact {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.88rem; color: rgba(255,255,255,0.85);
+    }
+    .summary-fact-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green-olive); flex-shrink: 0;
+    }
+
+    /* ─── INFO ─── */
+    .info { background: var(--white); }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .info-card {
+      background: var(--cream); border-radius: 24px; padding: 36px;
+    }
+    .info-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem;
+      margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+    }
+    .info-card-title span { font-size: 1.5rem; }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid rgba(143,175,90,0.2);
+      font-size: 0.9rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { font-weight: 500; color: var(--text-mid); }
+    .hours-time { color: var(--green-mid); font-weight: 600; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid rgba(143,175,90,0.2);
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--white); display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: var(--shadow); flex-shrink: 0;
+    }
+    .contact-label { font-size: 0.75rem; color: var(--text-light); }
+    .contact-value { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+    .contact-value a { color: inherit; text-decoration: none; }
+    .contact-value a:hover { color: var(--green-mid); }
+    .map-embed {
+      margin-top: 32px; border-radius: 20px; overflow: hidden;
+      height: 240px; background: var(--cream-warm);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; font-size: 0.85rem; color: var(--text-light);
+    }
+    .map-link {
+      display: inline-block; margin-top: 8px;
+      color: var(--green-mid); font-weight: 600; text-decoration: none; font-size: 0.85rem;
+    }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .service-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--text-mid);
+    }
+    .service-badge span:first-child { font-size: 1rem; }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      text-align: center; padding: 96px 24px;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-section p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 40px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-wa {
+      background: #25D366; color: var(--white);
+    }
+    .btn-wa:hover { background: #1fb857; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+    .btn-light { background: rgba(255,255,255,0.15); color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
+    .btn-light:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--text-dark); color: rgba(255,255,255,0.6);
+      padding: 48px 40px; text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .footer-logo em { color: var(--green-olive); font-style: italic; }
+    .footer-tagline { font-size: 0.85rem; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1rem; transition: background 0.2s;
+    }
+    .social-btn:hover { background: var(--green-mid); }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .stats-bar { gap: 24px; padding: 24px 20px; }
+      .stat-divider { display: none; }
+      .about-grid, .info-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { aspect-ratio: 16/9; }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .gallery-item.tall { grid-row: span 1; }
+      .reviews-summary { flex-direction: column; gap: 24px; }
+      .summary-divider { width: 60px; height: 1px; }
+      .gallery-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">Cafeto<span>pía</span></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      Mejor Café de Santander 2025
+    </div>
+    <h1>Cafe<em>topía</em></h1>
+    <p class="hero-tagline">Especialidad · Sabor · Comunidad · Bucaramanga</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Ver Menú
+      </a>
+      <a href="https://wa.me/573222239660" target="_blank" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escríbenos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">15K</span>
+    <span class="stat-label">Seguidores Instagram</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-num">4.4★</span>
+    <span class="stat-label">Calificación Google</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-num">#5</span>
+    <span class="stat-label">de 553 cafés en Bga</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-num">13+</span>
+    <span class="stat-label">Métodos de filtrado</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-num">🏆</span>
+    <span class="stat-label">Mejor café Santander 2025</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Interior de Cafetopía" loading="lazy" />
+        <div class="about-badge-float">
+          <div class="about-badge-icon">☕</div>
+          <div class="about-badge-text">
+            <strong>Café de Especialidad</strong>
+            <span>Línea exótica y tradicional</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label">Nuestra historia</p>
+        <h2 class="section-title">El café que<br/>cambia tu día</h2>
+        <p class="section-desc">
+          En Cafetopía creemos que cada taza cuenta una historia. Somos una cafetería de especialidad en el corazón de Bucaramanga, comprometidos con ofrecerte los mejores granos de Colombia preparados con más de <strong>13 métodos de filtrado distintos</strong>.
+        </p>
+        <p class="section-desc" style="margin-top:16px;">
+          Nuestro espacio acogedor, nuestro equipo apasionado y nuestra línea exótica de cafés nos convirtieron en el <strong>Mejor Café de Santander 2025</strong>. Aquí los perros son bienvenidos y cada visita se siente como en casa.
+        </p>
+        <div class="about-features">
+          <div class="feature-card">
+            <div class="feature-icon">🐾</div>
+            <div>
+              <h4>Pet-Friendly</h4>
+              <p>Tu mascota es bienvenida en nuestro espacio</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌿</div>
+            <div>
+              <h4>Especialidad</h4>
+              <p>Granos seleccionados de origen colombiano</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📶</div>
+            <div>
+              <h4>WiFi Gratis</h4>
+              <p>Ideal para trabajar o estudiar</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <div>
+              <h4>Parqueadero</h4>
+              <p>Acceso fácil en zona céntrica</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <p class="section-label">Carta completa 2026</p>
+    <h2 class="section-title">Nuestro Menú</h2>
+    <p class="section-desc" style="margin-bottom:40px;">Más de 13 métodos de filtrado, bebidas de especialidad, matcha, chai, comida salada y dulce. Hay algo para cada momento.</p>
+
+    <div class="menu-tabs" style="flex-wrap:wrap;">
+      <button class="tab-btn active" onclick="showTab('especiales', this)">✨ Especiales</button>
+      <button class="tab-btn" onclick="showTab('metodos', this)">🔍 Métodos</button>
+      <button class="tab-btn" onclick="showTab('calientes', this)">☕ Calientes</button>
+      <button class="tab-btn" onclick="showTab('frias', this)">🧊 Frías</button>
+      <button class="tab-btn" onclick="showTab('matcha', this)">🍵 Matcha & Chai</button>
+      <button class="tab-btn" onclick="showTab('sodas', this)">🍺 Sodas & Cócteles</button>
+      <button class="tab-btn" onclick="showTab('dulce', this)">🧇 Dulce</button>
+      <button class="tab-btn" onclick="showTab('salado', this)">🥗 Salado</button>
+    </div>
+
+    <!-- ── ESPECIALES ── -->
+    <div class="menu-panel active" id="tab-especiales">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_2.jpg" alt="Cafetopía × Ámbar Chocolates" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="assets/instagram/post_3.jpg" alt="Experiencia de los Sabores" loading="lazy" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=500&q=85" alt="Chocolates de especialidad" loading="lazy" /></div>
+      </div>
+      <div class="especiales-grid">
+        <div class="especial-card">
+          <img class="especial-img" src="https://images.unsplash.com/photo-1548907040-4baa42d10919?w=700&q=80" alt="Bombones Ámbar x Cafetopía" loading="lazy" style="object-position:center;" />
+          <div class="especial-body">
+            <span class="especial-badge">🏷️ Producto de Temporada</span>
+            <div class="especial-title">Bombones Ámbar × Cafetopía</div>
+            <p class="especial-desc">
+              Esta alianza une el sabor de <strong>Ámbar Chocolates</strong> y <strong>Cafetopía</strong>. Cubierto de chocolate al 70% y relleno de las bebidas más vendidas de Cafetopía: <em>Cappuccino, Chai, Matcha y Latte</em>.
+            </p>
+            <div class="especial-price">$20.000</div>
+          </div>
+        </div>
+        <div class="especial-card">
+          <img class="especial-img" src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=700&q=80" alt="Experiencia de los Sabores" loading="lazy" />
+          <div class="especial-body">
+            <span class="especial-badge">👥 Para compartir</span>
+            <div class="especial-title">Experiencia de los Sabores</div>
+            <p class="especial-desc">
+              Pensada para 2 a 4 personas. Incluye 4 bombones de chocolate por persona — matcha, cappuccino, latte y chai — acompañados de un americano. Disfruta cada chocolate junto con el café para descubrir combinaciones únicas.
+              <br/><br/>
+              <em>Ámbar también ofrece cajas de 6, 9 y 12 unidades. Consulta en caja.</em>
+            </p>
+            <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:8px;">
+              <div><div style="font-size:0.78rem;color:var(--text-light);">Para 4 personas</div><div class="especial-price" style="font-size:1.5rem;">$75.000</div></div>
+              <div><div style="font-size:0.78rem;color:var(--text-light);">Para 2 personas</div><div class="especial-price" style="font-size:1.5rem;">$38.000</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MÉTODOS ── -->
+    <div class="menu-panel" id="tab-metodos">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_6.jpg" alt="Kalita — Método de filtrado" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="assets/instagram/post_4.jpg" alt="V60 — Método de filtrado" loading="lazy" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=85" alt="Chemex filtrado" loading="lazy" style="object-position:center 40%;" /></div>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:24px;line-height:1.6;">En el mundo del cafecito, los métodos de filtrado son verdaderas expresiones de pasión, creando experiencias sensoriales que despiertan los sentidos. Desde el vertido hasta el goteo, cada preparación eleva el cafecito a una forma de arte.</p>
+      <div class="menu-metodos-grid">
+        <div class="metodo-card"><div class="metodo-icon">⚗️</div><div class="metodo-card-name">Sifón Japonés</div><div class="metodo-card-desc">Originario de Europa, adoptado en Japón a principios del siglo XX.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🫙</div><div class="metodo-card-name">Prensa Francesa</div><div class="metodo-card-desc">Creada en Francia y patentada en 1929.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🫖</div><div class="metodo-card-name">Ibrik</div><div class="metodo-card-desc">El ibrik, método de filtrado, tiene raíces en Oriente Medio. Originario de la cultura árabe.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🧪</div><div class="metodo-card-name">Chemex</div><div class="metodo-card-desc">Elegante método de preparación de café, fue creado en 1941.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">☕</div><div class="metodo-card-name">Moka Italiana</div><div class="metodo-card-desc">También conocida como cafetera Moka o simplemente Moka, fue en 1933.</div><div class="metodo-prices"><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🌀</div><div class="metodo-card-name">Gina</div><div class="metodo-card-desc">Método de filtrado de café creado en 2017 por una empresa eslovena.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">💧</div><div class="metodo-card-name">Clever Dripper</div><div class="metodo-card-desc">Inventado en 2009, combina métodos de inmersión y goteo.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">⚖️</div><div class="metodo-card-name">Kalita</div><div class="metodo-card-desc">El método Kalita, de Japón y lanzado en 2004, ofrece una extracción uniforme.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🔬</div><div class="metodo-card-name">Delter</div><div class="metodo-card-desc">Delter Coffee fue creado por diseñadores australianos. Se lanzó en el mercado en 2018.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🌊</div><div class="metodo-card-name">V60</div><div class="metodo-card-desc">El V60, creado en 2005. Este diseño permite un flujo de agua uniforme.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🎋</div><div class="metodo-card-name">Onigami</div><div class="metodo-card-desc">Creado en Japón en 2019, destaca por su diseño y extracción precisa.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">💦</div><div class="metodo-card-name">Pulsar</div><div class="metodo-card-desc">El método Pulsar, lanzado en 2017, ofrece extracción precisa con flujo intermitente de agua.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🎐</div><div class="metodo-card-name">Kazumi</div><div class="metodo-card-desc">Método de preparación de café que utiliza la presión y el vacío para extraer el café.</div><div class="metodo-prices"><div class="metodo-price-item">2 tazas $40.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🚀</div><div class="metodo-card-name">Aeropress</div><div class="metodo-card-desc">La AeroPress, lanzada en 2005, es un método versátil y rápido.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🔄</div><div class="metodo-card-name">Hario Switch V60</div><div class="metodo-card-desc">Hario V60 (Japón, 2005): método de vertido manual que logra un café limpio y aromático.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+        <div class="metodo-card"><div class="metodo-icon">🌪️</div><div class="metodo-card-name">Tornado</div><div class="metodo-card-desc">Creado en 2021 y ganador del premio iF Design en 2023 por su innovadora doble pared de vidrio.</div><div class="metodo-prices"><div class="metodo-price-item">1 taza $10.000</div><div class="metodo-price-item">2 tazas $18.000</div></div></div>
+      </div>
+      <div class="linea-exotica-banner">
+        <div><h3>Línea Exótica ✨</h3><p>Disponible en cualquiera de los métodos anteriores</p></div>
+        <div class="price">1 taza $16.000</div>
+      </div>
+      <p style="text-align:center;margin-top:14px;font-size:0.82rem;color:var(--text-light);">* El método <strong>Gina</strong>, V60 o Clever se sirven en la barra.</p>
+    </div>
+
+    <!-- ── BEBIDAS CALIENTES ── -->
+    <div class="menu-panel" id="tab-calientes">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=85" alt="Cappuccino con latte art" loading="lazy" style="object-position:center 30%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=500&q=85" alt="Espresso doble" loading="lazy" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1578374173705-969cbe6f2d6b?w=500&q=85" alt="Latte caliente" loading="lazy" style="object-position:center 20%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Solo Café</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Espresso</div><div class="menu-card-desc">Siempre doble.</div></div><div class="menu-price">$7.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Espresso Cubano</div><div class="menu-card-desc">Espresso doble con panela orgánica.</div></div><div class="menu-price">$8.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Americano</div><div class="menu-card-desc">Espresso con agua.</div></div><div class="menu-price">$6.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Americano Doble</div><div class="menu-card-desc">Espresso doble con agua.</div></div><div class="menu-price">$8.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Campesino</div><div class="menu-card-desc">Espresso con agua y panela orgánica.</div></div><div class="menu-price">$8.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Campesino Doble</div><div class="menu-card-desc">Espresso doble con agua y panela orgánica.</div></div><div class="menu-price">$8.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Macchiato</div><div class="menu-card-desc">Espresso sencillo con espuma de leche.</div></div><div class="menu-price">$6.800</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Con Café / Con Leche</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cappuccino</div><div class="menu-card-desc">Espresso doble con leche cremada. (Cargado).</div></div><div class="menu-price">$10.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cortado (Pequeño)</div><div class="menu-card-desc">Espresso sencillo con leche cremada.</div></div><div class="menu-price">$8.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Latte</div><div class="menu-card-desc">Espresso sencillo con leche cremada. (Más suave que el cappuccino).</div></div><div class="menu-price">$9.100</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Latte Chai</div><div class="menu-card-desc">Espresso sencillo con chai y leche cremada.</div></div><div class="menu-price">$12.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cappuccino Vienés</div><div class="menu-card-desc">Espresso doble con leche cremada, crema chantilly y canela. (Cargado).</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Flat White</div><div class="menu-card-desc">Espresso doble corto con leche cremada. (Un poco más cargado que el cappuccino).</div></div><div class="menu-price">$10.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Flat White Milo</div><div class="menu-card-desc">Espresso doble corto con leche cremada y milo.</div></div><div class="menu-price">$11.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Mocca</div><div class="menu-card-desc">Espresso sencillo con cacao y leche cremada. (Chocolate amargo).</div></div><div class="menu-price">$11.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Mocca Blanco</div><div class="menu-card-desc">Espresso con chocolate blanco y leche cremada.</div></div><div class="menu-price">$10.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Mocca Vienés</div><div class="menu-card-desc">Espresso sencillo con cacao, leche cremada y crema chantilly.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Milatte</div><div class="menu-card-desc">Espresso sencillo con milo y leche cremada.</div></div><div class="menu-price">$12.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Latte Español</div><div class="menu-card-desc">Espresso sencillo con leche condensada y leche cremada.</div></div><div class="menu-price">$11.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Sin Café</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Milo</div><div class="menu-card-desc">Milo con leche.</div></div><div class="menu-price">$11.800</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chocolate (Con leche)</div><div class="menu-card-desc">Puedes escoger entre chocolate negro o blanco.</div></div><div class="menu-price">$11.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Golden Milk</div><div class="menu-card-desc">Cúrcuma, jengibre, canela y pimienta negra. Con leche.</div></div><div class="menu-price">$11.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Babycino</div><div class="menu-card-desc">Chocolate al 75% con leche cremada. (Para niños).</div></div><div class="menu-price">$6.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Infusiones</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frutos Rojos</div><div class="menu-card-desc">Dulce.</div></div><div class="menu-price">$7.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frutos Amarillos</div><div class="menu-card-desc">Dulce.</div></div><div class="menu-price">$7.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Jamaica, Canela</div><div class="menu-card-desc"></div></div><div class="menu-price">$7.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Albahaca, Hierbabuena, Canela</div><div class="menu-card-desc"></div></div><div class="menu-price">$7.200</div></div>
+      </div>
+
+      <div class="menu-addon-box">
+        <h4>Adicionales</h4>
+        <div class="menu-addon-row"><span>Caramelo, macadamia o vainilla</span><span>$3.000</span></div>
+        <div class="menu-addon-row"><span>Leche de almendras, coco o avena</span><span>$5.000</span></div>
+        <div class="menu-addon-row"><span>Syrup Premium: Rosas, caramelo salado, masmelo tostado</span><span>$5.000</span></div>
+      </div>
+      <p style="font-size:0.78rem;color:var(--text-light);text-align:center;">* Las bebidas con leche se sirven entre 65° y 75° grados.</p>
+    </div>
+
+    <!-- ── BEBIDAS FRÍAS ── -->
+    <div class="menu-panel" id="tab-frias">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_1.jpg" alt="Orange Brew y Tangerine Brew de Cafetopía" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=85" alt="Cold brew" loading="lazy" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&q=85" alt="Bebida fría con hielo" loading="lazy" style="object-position:center 60%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Bebidas Frías</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Cream Latte</div><div class="menu-card-desc">Cold brew, helado, leche, hielo y leche condensada.</div></div><div class="menu-price">$17.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Latte</div><div class="menu-card-desc">Cold brew, leche y hielo.</div></div><div class="menu-price">$13.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Coffee</div><div class="menu-card-desc">Espresso con agua y hielo.</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Latte Chai</div><div class="menu-card-desc">Cold brew, chai, leche y hielo.</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Latte Berries</div><div class="menu-card-desc">Cold brew, reducción de frutos rojos, leche y hielo.</div></div><div class="menu-price">$16.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Latte Peanut Butter</div><div class="menu-card-desc">Cold brew, hielo, leche, mantequilla de maní.</div></div><div class="menu-price">$17.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Peach</div><div class="menu-card-desc">Cold brew, reducción de frutos amarillos, leche y hielo.</div></div><div class="menu-price">$16.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Mocca</div><div class="menu-card-desc">Coldbrew, chocolate, leche y hielo.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Submarino de Café</div><div class="menu-card-desc">Cubos de espresso, leche condensada, leche cremada y hielo.</div></div><div class="menu-price">$15.000</div></div>
+      </div>
+
+      <div class="menu-addon-box">
+        <h4>Adicionales</h4>
+        <div class="menu-addon-row"><span>Caramelo, macadamia o vainilla</span><span>$3.000</span></div>
+        <div class="menu-addon-row"><span>Leche de almendras, coco o avena</span><span>$5.000</span></div>
+        <div class="menu-addon-row"><span>Syrup Premium: Rosas, caramelo salado, masmelo tostado</span><span>$5.000</span></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Bebidas con Cold Brew</h3></div>
+      <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:20px;line-height:1.6;">El Cold Brew es un método de preparación que consiste en infusinar café molido en agua fría durante un periodo prolongado, generalmente entre 12 y 24 horas.</p>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Lulo Spicy Brew</div><div class="menu-card-desc">Syrup de lulo, naranja y jengibre, zumo de limón, soda Bretaña, hielo y cold brew.</div></div><div class="menu-price">$18.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Gingermint Brew</div><div class="menu-card-desc">Ginger ale, zumo de limón, hojas de menta, hielo y cold brew.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Jamaica Brew</div><div class="menu-card-desc">Syrup de flor de Jamaica, zumo de limón, soda Bretaña, hielo y cold brew.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Guandolo</div><div class="menu-card-desc">Syrup de maracuyá y piña, zumo de limón, soda Bretaña, hielo y cold brew.</div></div><div class="menu-price">$18.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cinnamon Honey Brew</div><div class="menu-card-desc">Syrup de miel canela, zumo de limón, soda Bretaña, hielo y cold brew.</div></div><div class="menu-price">$16.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Sunset Brew</div><div class="menu-card-desc">Frutos amarillos, ginger, hierbabuena, hielo y cold brew.</div></div><div class="menu-price">$16.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Lemon Brew</div><div class="menu-card-desc">Limón, syrup simple, soda, hielo y cold brew.</div></div><div class="menu-price">$19.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Orange Brew</div><div class="menu-card-desc">Zumo de naranja natural, agua tónica, hielo y cold brew.</div></div><div class="menu-price">$17.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Tangerine Brew</div><div class="menu-card-desc">Zumo de mandarina natural, agua tónica, hielo y cold brew.</div></div><div class="menu-price">$17.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Cold Brew 🧊 <span style="font-size:0.85rem;color:var(--text-light);font-family:'Inter',sans-serif;font-weight:400;">(+$8.000 con Nitro)</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Tradicional</div><div class="menu-card-desc"></div></div><div class="menu-price">$23.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Honey</div><div class="menu-card-desc"></div></div><div class="menu-price">$26.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Kioto</div><div class="menu-card-desc"></div></div><div class="menu-price">$26.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Exótico</div><div class="menu-card-desc"></div></div><div class="menu-price">$28.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Infusionado</div><div class="menu-card-desc"></div></div><div class="menu-price">$22.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Malteadas</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Malteada de Café</div><div class="menu-card-desc">Helado de vainilla, espresso doble, leche, salsa de arequipe y crema chantilly.</div></div><div class="menu-price">$21.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Malteada de Café y Arequipe</div><div class="menu-card-desc">Helado de vainilla, espresso doble, arequipe, leche, salsa de arequipe y crema chantilly.</div></div><div class="menu-price">$25.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Malteada de Vainilla</div><div class="menu-card-desc">Helado de vainilla, syrup de vainilla, leche, salsa de chocolate y crema chantilly.</div></div><div class="menu-price">$21.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Malteada de Café y Frutos Rojos</div><div class="menu-card-desc">Helado de vainilla, espresso doble, reducción de frutos rojos, leche, salsa de frutos rojos y crema chantilly.</div></div><div class="menu-price">$25.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Malteada Mantequilla de Maní</div><div class="menu-card-desc">Helado de vainilla, leche, mantequilla de maní, maní y crema chantilly.</div></div><div class="menu-price">$27.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Granizados con Café</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Granizado de Cáscara de Café</div><div class="menu-card-desc">Infusión de cáscara de café, tamarindo, panela y zumo de limón.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Café</div><div class="menu-card-desc">Espresso doble, limón y panela.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frappé</div><div class="menu-card-desc">Espresso doble, leche, helado de vainilla, crema chantilly y chips de chocolate (escoge salsa de arequipe o chocolate).</div></div><div class="menu-price">$17.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frappé Chai</div><div class="menu-card-desc">Espresso doble, leche, helado de vainilla, chai, crema chantilly y salsa de arequipe.</div></div><div class="menu-price">$18.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frappé Milo</div><div class="menu-card-desc">Espresso doble, leche, milo, helado de vainilla, crema chantilly y salsa de chocolate.</div></div><div class="menu-price">$19.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Granizados sin Café</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Milo con Leche</div><div class="menu-card-desc"></div></div><div class="menu-price">$16.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Granizado Chai</div><div class="menu-card-desc">Té negro, canela, cardamomo, clavo, jengibre, vainilla, anís, manzana y leche.</div></div><div class="menu-price">$16.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada Brasileña</div><div class="menu-card-desc">Limón, hielo, leche condensada, leche en polvo, leche.</div></div><div class="menu-price">$16.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada Santandereana</div><div class="menu-card-desc">Kola Hipinto, limón y hielo.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Pepino y Albahaca</div><div class="menu-card-desc"></div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Hierbabuena</div><div class="menu-card-desc"></div></div><div class="menu-price">$13.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Frutos Rojos</div><div class="menu-card-desc">Sin azúcar.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Piña y Albahaca</div><div class="menu-card-desc">Sin azúcar.</div></div><div class="menu-price">$15.500</div></div>
+      </div>
+    </div>
+
+    <!-- ── MATCHA & CHAI ── -->
+    <div class="menu-panel" id="tab-matcha">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_9.jpg" alt="Mambe Berries — Cafetopía" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=500&q=85" alt="Matcha latte" loading="lazy" style="object-position:center 30%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=500&q=85" alt="Chai latte especiado" loading="lazy" style="object-position:center 40%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Matcha 🍵</h3></div>
+      <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:16px;line-height:1.6;">Té verde japonés en polvo, elaborado a partir de hojas finamente molidas. Sabor suave y vegetal.</p>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Matcha Frutos Amarillos</div><div class="menu-card-desc">Leche, frutos amarillos, matcha y hielo.</div></div><div class="menu-price">$17.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Matcha</div><div class="menu-card-desc">Leche, matcha y hielo.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Matcha Rosas</div><div class="menu-card-desc">Leche, matcha, esencia de rosas y hielo.</div></div><div class="menu-price">$17.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Affogato Matcha</div><div class="menu-card-desc">Matcha con helado.</div></div><div class="menu-price">$16.700</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Iced Cream Matcha</div><div class="menu-card-desc">Matcha con helado, leche y hielo.</div></div><div class="menu-price">$15.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Matcha con Leche (Caliente)</div><div class="menu-card-desc"></div></div><div class="menu-price">$10.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Limonada de Matcha</div><div class="menu-card-desc">Limón, syrup simple, matcha, soda, hielo.</div></div><div class="menu-price">$19.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Bebidas de Chai ☕</h3></div>
+      <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:16px;line-height:1.6;">El chai es reconfortante, ayuda a la digestión, aporta antioxidantes y brinda una energía suave sin exceso. Puedes escoger tu bebida <strong>fría o caliente</strong>.</p>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Diosa</div><div class="menu-card-desc">Canela, té negro bitaco colombiano, cardamomo, clavos de olor y jengibre. Leche, panela y chai.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Rosa</div><div class="menu-card-desc">Lavanda, nuez moscada, coriandro. Leche, panela y polvo rosa.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Zafiro</div><div class="menu-card-desc">Butterfly Pea, anís estrellado y vainilla. Leche, panela y polvo zafiro.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Dorado</div><div class="menu-card-desc">Cúrcuma, chocolate, cardamomo y clavos. Leche, panela y polvo dorado.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Esmeralda</div><div class="menu-card-desc">Hoja de coca, cardamomo y pimienta de olor. Leche, panela y polvo esmeralda.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Onix</div><div class="menu-card-desc">Carbón activado, coco y limonada. Leche, panela y polvo onix.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chai Nácar</div><div class="menu-card-desc">Caramelo salado, chocolate y cardamomo. Leche, panela y polvo nácar.</div></div><div class="menu-price">$7.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Mambe 🌿</h3></div>
+      <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:16px;">Polvo natural elaborado a partir de hojas de coca tostadas y molidas, usado por comunidades indígenas. Sabor herbal.</p>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chocomambe (Caliente)</div><div class="menu-card-desc">Mambe, leche y cacao al 75%.</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Mambe Berries (Frío)</div><div class="menu-card-desc">Mambe, reducción de frutos rojos lavanda, leche y hielo.</div></div><div class="menu-price">$15.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Hongos — Café Funcional 🍄</h3></div>
+      <div class="menu-addon-box">
+        <h4>Adiciona hongos funcionales a tu bebida · +$6.000</h4>
+        <div class="menu-addon-row"><span><strong>Melena de León</strong> — mejora la concentración, la memoria y la claridad mental. Ideal para cappuccino.</span></div>
+        <div class="menu-addon-row"><span><strong>Ganoderma (Reishi)</strong> — apoya el sistema inmune y el bienestar general. Ideal para filtrado.</span></div>
+        <div class="menu-addon-row"><span><strong>Cordyceps</strong> — aporta energía natural y resistencia. Ideal para cold brew.</span></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Proteína 💪</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Scoop de Proteína</div><div class="menu-card-desc">Iso100 Hydrolyzed.</div></div><div class="menu-price">$13.000</div></div>
+      </div>
+    </div>
+
+    <!-- ── SODAS & CÓCTELES ── -->
+    <div class="menu-panel" id="tab-sodas">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=900&q=85" alt="Cóctel con frutas" loading="lazy" style="object-position:center 40%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&q=85" alt="Sodas coloridas" loading="lazy" style="object-position:center 50%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&q=85" alt="Kombucha natural" loading="lazy" style="object-position:center 30%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Sodas 🫧</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Flor de Jamaica</div><div class="menu-card-desc">Soda bretaña, zumo de limón y syrup de flor de jamaica.</div></div><div class="menu-price">$12.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Tamarindo</div><div class="menu-card-desc">Soda bretaña, zumo de limón y syrup de tamarindo.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Limón Lavanda</div><div class="menu-card-desc">Soda bretaña, syrup de lavanda, zumo de limón.</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Frutos Rojos</div><div class="menu-card-desc">Soda bretaña, reducción de cereza, mora, fresa, hierbabuena, y bombas explosivas de arándano.</div></div><div class="menu-price">$18.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Frutos Amarillos</div><div class="menu-card-desc">Soda bretaña, reducción de uchuvas, mango, durazno, hierbabuena y bombas explosivas de maracuyá.</div></div><div class="menu-price">$18.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Café</div><div class="menu-card-desc">Soda bretaña, espresso doble, zumo de limón y syrup de albahaca.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda de Rosas</div><div class="menu-card-desc">Soda bretaña, syrup de rosas.</div></div><div class="menu-price">$13.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Kombucha 🌺</h3></div>
+      <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:16px;">Bebida natural y única, fermentada con microorganismos. De sabor frutal y especiado, acompañada de burbujas refrescantes.</p>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Frutos Rojos</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Tríptico</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Jengibre</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Té Verde</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Serendipia</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">La Colombiana</div></div><div class="menu-price">$12.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Café con Licor 🍸 <span style="font-size:0.8rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--text-light);">Frío o Caliente</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="licor-base-card"><div class="licor-base-name">Latte Envenenado</div><div class="licor-base-price">$9.100</div><div class="licor-options"><div class="licor-option"><span>Brandy</span><span>+$7.000</span></div><div class="licor-option"><span>Baileys</span><span>+$7.000</span></div><div class="licor-option"><span>Ginebra</span><span>+$9.000</span></div><div class="licor-option"><span>Vodka</span><span>+$9.000</span></div><div class="licor-option"><span>Amaretto</span><span>+$5.000</span></div><div class="licor-option"><span>Aguardiente</span><span>+$5.000</span></div><div class="licor-option"><span>Whisky</span><span>+$12.000</span></div></div></div>
+        <div class="licor-base-card"><div class="licor-base-name">Frappé Envenenado</div><div class="licor-base-price">$17.500</div><div class="licor-options"><div class="licor-option"><span>Amaretto</span><span>+$5.000</span></div><div class="licor-option"><span>Baileys</span><span>+$7.000</span></div><div class="licor-option"><span>Brandy</span><span>+$7.000</span></div></div></div>
+        <div class="licor-base-card"><div class="licor-base-name">Iced Latte Envenenado</div><div class="licor-base-price">$13.000</div><div class="licor-options"><div class="licor-option"><span>Amaretto</span><span>+$5.000</span></div><div class="licor-option"><span>Baileys</span><span>+$7.000</span></div><div class="licor-option"><span>Brandy</span><span>+$7.000</span></div></div></div>
+      </div>
+      <div class="menu-subgrid" style="margin-top:14px;">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Carajillo (Caliente)</div><div class="menu-card-desc">Americano con aguardiente y panela orgánica.</div></div><div class="menu-price">$10.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cold Brew Gin (Frío)</div><div class="menu-card-desc">Cold brew con ginebra y syrup.</div></div><div class="menu-price">$19.400</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Espresso Martini (Frío)</div><div class="menu-card-desc">Espresso, vodka, baileys y syrup de vainilla.</div></div><div class="menu-price">$23.600</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Café Irlandés (Caliente)</div><div class="menu-card-desc">Espresso doble, whisky y crema chantilly.</div></div><div class="menu-price">$20.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Cócteles 🍹</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Mojito Mulato</div><div class="menu-card-desc">Hielo, cerveza mulata, cordial de hierbabuena, zumo de limón.</div></div><div class="menu-price">$35.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Rose Berries</div><div class="menu-card-desc">Hielo, Cerveza rose, vodka, syrup de arándano, zumo de limón.</div></div><div class="menu-price">$35.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Brew Bomb</div><div class="menu-card-desc">Cold brew, Jagermaister, Red Bull.</div></div><div class="menu-price">$35.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Otros</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Agua Hatsu</div></div><div class="menu-price">$6.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Te Hatsu</div></div><div class="menu-price">$9.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Soda Bretaña</div></div><div class="menu-price">$9.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Ginger Canada Dry</div></div><div class="menu-price">$7.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Red Bull</div></div><div class="menu-price">$12.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cerveza 3 Cordilleras</div></div><div class="menu-price">$10.000</div></div>
+      </div>
+    </div>
+
+    <!-- ── ACOMPAÑAMIENTO DULCE ── -->
+    <div class="menu-panel" id="tab-dulce">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_8.jpg" alt="Waffle de Tocineta — Cafetopía" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=85" alt="Torta de especialidad" loading="lazy" style="object-position:center 40%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&q=85" alt="Galletas artesanales" loading="lazy" style="object-position:center 50%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Affogato</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Affogato</div><div class="menu-card-desc">Espresso doble con helado, salsa de chocolate y chips.</div></div><div class="menu-price">$14.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Afforeo</div><div class="menu-card-desc">Espresso doble con helado y galletas oreo.</div></div><div class="menu-price">$16.700</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Postres</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cannoli</div><div class="menu-card-desc">Dulce italiano, cilindro crujiente, relleno de crema dulce de queso fresco y cacao.</div></div><div class="menu-price">$13.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Waffles 🧇</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Buñuelo</div><div class="menu-card-desc">Masa de Buñuelo, salsa de natilla de arequipe y helado de vainilla.</div></div><div class="menu-price">$22.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Almojábana</div><div class="menu-card-desc">Masa de almojábana, salsa de bocadillo y helado de vainilla.</div></div><div class="menu-price">$22.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Pan de Yuca</div><div class="menu-card-desc">Masa de pan de yuca, queso mozzarella, tocineta y reducción de miel y canela.</div></div><div class="menu-price">$24.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Choclo</div><div class="menu-card-desc">Masa de maíz dulce, queso salado, chorizo tipo coctel colombo alemana caramelizados en reducción de panela especiada.</div></div><div class="menu-price">$24.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Arándano y Limón</div><div class="menu-card-desc">Masa de arándanos y limón, salsa de arándanos, helado de vainilla y chips de chocolate.</div></div><div class="menu-price">$23.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Tortas</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Torta de Chocolate</div></div><div class="menu-price">$17.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Torta de Amapola</div></div><div class="menu-price">$17.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Torta de Zanahoria</div></div><div class="menu-price">$17.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cheesecake Frutos Amarillos</div></div><div class="menu-price">$19.200</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cheesecake Frutos Rojos</div></div><div class="menu-price">$19.200</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Galletas 🍪 <span style="font-size:0.78rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--text-light);">A partir de las 2:00 pm</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Matcha con Franui</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chocopistachio</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cayena y Dátiles</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Triple Chocolate</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Bocadillo y Queso</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Leche Klim</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cinnamon</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">San Valentín</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Kinder</div></div><div class="menu-price">$14.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chips de Chocolate</div></div><div class="menu-price">$10.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">S'more</div></div><div class="menu-price">$10.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Arándanos y Chocolate Blanco</div></div><div class="menu-price">$10.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Red Velvet</div></div><div class="menu-price">$10.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Chocomani</div></div><div class="menu-price">$10.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Ferrero</div></div><div class="menu-price">$20.000</div></div>
+      </div>
+    </div>
+
+    <!-- ── ACOMPAÑAMIENTO SALADO ── -->
+    <div class="menu-panel" id="tab-salado">
+      <div class="menu-photo-grid">
+        <div class="photo-main"><img src="assets/instagram/post_7.jpg" alt="Champiñones al Queso — Cafetopía" loading="lazy" style="object-position:center;" /></div>
+        <div class="photo-side"><img src="assets/instagram/post_8.jpg" alt="Waffle de Tocineta" loading="lazy" style="object-position:center 50%;" /></div>
+        <div class="photo-side"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=85" alt="Brunch spread" loading="lazy" style="object-position:center 40%;" /></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Entradas</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Champinón al Queso</div><div class="menu-card-desc">Empanadas de hojaldre rellenas de champiñón, salsa de queso azul y peras al vino.</div></div><div class="menu-price">$24.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Montaditos Italianos</div><div class="menu-card-desc">Cortes de pan focaccia, salsa napolitana, queso mozzarella, pepperoni, frutos amarillos y albahaca.</div></div><div class="menu-price">$20.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Bruschetas</div><div class="menu-card-desc">Pan focaccia, dip de queso crema y frutos secos, tomates confitados, prosciutto.</div></div><div class="menu-price">$22.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Cacerolas — Brunch <span style="font-size:0.78rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--text-light);">8:30 am a 12:00 pm</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Desayuno Americano</div><div class="menu-card-desc">Huevos, aguacate, tocineta crocante, panquecas de avena y banano con syrup de miel.</div></div><div class="menu-price">$22.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Huevos Rotos</div><div class="menu-card-desc">Cama de papas a la francesa, huevos fritos, jamón serrano y crocante de tocineta.</div></div><div class="menu-price">$21.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Huevos Rancheros</div><div class="menu-card-desc">Sofrito mexicano, chorizo, queso gratinado, huevos, aguacate y totopos de maíz (picante medio).</div></div><div class="menu-price">$26.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Huevos Cafetopía</div><div class="menu-card-desc">Base de papa francesa, dos huevos tiernos y lomo fino en salsa pesto.</div></div><div class="menu-price">$27.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Huevos Fusión Napolitana</div><div class="menu-card-desc">Cama de queso mozzarella, lomo fino sesgado en salsa napolitana, gratinado de queso y dos huevos tiernos.</div></div><div class="menu-price">$27.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Bowl — Brunch <span style="font-size:0.78rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--text-light);">8:30 am a 12:00 pm</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Bowl</div><div class="menu-card-desc">Yogurt griego, banano, granola, kiwi, fresa, durazno, miel-canela al gusto.</div></div><div class="menu-price">$21.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Croissants 🥐</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Culturing</div><div class="menu-card-desc">Mascarpone, Cold brew, nutella, banano y fresa.</div></div><div class="menu-price">$28.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Bourbon</div><div class="menu-card-desc">Pesto, mix de hortalizas orgánicas (acelgas, kale rizado, misuna), suprema de pollo, cielegine, tomates cherrys.</div></div><div class="menu-price">$30.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Blue Mountain</div><div class="menu-card-desc">Queso cheddar, huevo frito, aguacate, tocineta crocante.</div></div><div class="menu-price">$30.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Emparedados 🥪</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Emparedado Roastbeef</div><div class="menu-card-desc">Pan brioche, aderezo de la casa, vegetales frescos, roastbeef artesanal, queso mozzarella y papas chips.</div></div><div class="menu-price">$30.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Emparedado Bondiola de Cerdo</div><div class="menu-card-desc">Pan brioche, vegetales frescos, bondiola de cerdo artesanal en BBQ, queso mozzarella y papas chips.</div></div><div class="menu-price">$30.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Emparedado de Pollo</div><div class="menu-card-desc">Pan brioche, vegetales frescos, pollo desmechado en salsa de la casa, queso mozzarella y papas chips.</div></div><div class="menu-price">$26.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Emparedado de Pavo y Aguacate</div><div class="menu-card-desc">Pan brioche, vegetales frescos, finos cortes de pavo, aguacate, queso mozzarella y papas chips.</div></div><div class="menu-price">$31.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Emparedado de Carne Desmechada</div><div class="menu-card-desc">Pan brioche, vegetales frescos, carne desmechada, queso mozzarella y papas chips.</div></div><div class="menu-price">$26.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Tartines</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Tartine de Burrata</div><div class="menu-card-desc">Pan de masa madre, aderezo de la casa, rugula, tomates cherrys confitados, burrata y papas chips.</div></div><div class="menu-price">$33.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Pizzas de Bolsillo 🍕 <span style="font-size:0.78rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--text-light);">A partir de las 3:00 pm</span></h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Margarita</div><div class="menu-card-desc">Salsa napolitana, queso mozzarella y albahaca.</div></div><div class="menu-price">$19.500</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Pepperoni</div><div class="menu-card-desc">Salsa napolitana, queso mozzarella, parmesano y pepperoni.</div></div><div class="menu-price">$25.500</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Empanadas</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Italiana</div><div class="menu-card-desc">Pepperoni, queso mozzarella, salsa napolitana y finas hierbas.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Pollo Caprese</div><div class="menu-card-desc">Cubitos de pollo a la parrilla, queso mozzarella, tomates cherrys y albahaca.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Pollo Camarón</div><div class="menu-card-desc">Cubitos de pollo, camarón salteado y queso mozzarella.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Cuatro Quesos</div><div class="menu-card-desc">Mix de quesos, queso azul, queso chitagá y champiñones.</div></div><div class="menu-price">$7.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Manzana y Tocineta</div><div class="menu-card-desc">Manzana caramelizada, tocineta, queso mozzarella, salsa blanca.</div></div><div class="menu-price">$7.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Waffle Salado</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Waffle de Tocineta</div><div class="menu-card-desc">Masa de queso costeño, dip de tocineta, jamón de pierna, lonjas de aguacate y queso mozzarella tajado.</div></div><div class="menu-price">$26.000</div></div>
+      </div>
+
+      <div class="menu-cat-header"><h3>Para Compartir 🎉</h3></div>
+      <div class="menu-subgrid">
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Brunch para Compartir</div><div class="menu-card-desc">8:30 am a 12 pm. Mini huevos rancheros y fusión napolitana, mini waffles de choclo y arándanos, dos mini bowls de frutas, croissant bourbon, cannoli y tostadas de la casa.</div></div><div class="menu-price">$90.000</div></div>
+        <div class="menu-card menu-card-sm"><div class="menu-card-info"><div class="menu-card-name">Trilogía de Hamburguesas</div><div class="menu-card-desc">A partir de las 12:00 pm. Tres mini hamburguesas con diferentes salsas, carne Angus, queso mozzarella. Con salsa tártara y papas a la francesa.</div></div><div class="menu-price">$59.000</div></div>
+      </div>
+    </div>
+
+    <p class="menu-note">Precios en COP incluyen IVA. Carta sujeta a cambios por disponibilidad de temporada.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="gallery-header">
+      <div>
+        <p class="section-label">Nuestro espacio</p>
+        <h2 class="section-title">Galería</h2>
+      </div>
+      <a href="https://www.instagram.com/cafetopiacol/" target="_blank" class="ig-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @cafetopiacol
+      </a>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/instagram/post_1.jpg" alt="Orange Brew y Tangerine Brew" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_2.jpg" alt="Cafetopía × Ámbar Chocolates" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_3.jpg" alt="Experiencia de los Sabores" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_4.jpg" alt="V60 — Método de filtrado" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_5.jpg" alt="Pasaporte Cafetero Bucaramanga" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_6.jpg" alt="Kalita — Método de filtrado" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_7.jpg" alt="Champiñones al Queso" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_8.jpg" alt="Waffle de Tocineta" loading="lazy" />
+      </div>
+      <div class="gallery-item">
+        <img src="assets/instagram/post_9.jpg" alt="Mambe Berries" loading="lazy" />
+      </div>
+    </div>
+    <div class="gallery-instagram">
+      <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:16px;">Sigue nuestro día a día en Instagram</p>
+      <a href="https://www.instagram.com/cafetopiacol/" target="_blank" class="ig-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Ver más en @cafetopiacol · 15K seguidores
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="resenas">
+  <div class="container">
+    <p class="section-label">Lo que dicen nuestros clientes</p>
+    <h2 class="section-title" style="margin-bottom:40px;">Reseñas</h2>
+
+    <div class="reviews-summary">
+      <div class="summary-score">
+        <div class="summary-big">4.4</div>
+        <div class="summary-stars-big">★★★★★</div>
+        <div class="summary-count">388 reseñas en Google</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-facts">
+        <div class="summary-fact"><div class="summary-fact-dot"></div>#5 de 553 cafeterías en Bucaramanga</div>
+        <div class="summary-fact"><div class="summary-fact-dot"></div>4.3/5 en TripAdvisor</div>
+        <div class="summary-fact"><div class="summary-fact-dot"></div>Mejor Café de Santander 2025</div>
+        <div class="summary-fact"><div class="summary-fact-dot"></div>Pet-friendly · Terraza exterior</div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Una experiencia excelente, menú muy completo. Tienen más de 13 métodos de filtrado para probar diferentes líneas de café. La calidad es impresionante."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div class="review-name">
+            <strong>Andrés M.</strong>
+            <span>Visitante frecuente</span>
+          </div>
+          <div class="review-platform">TripAdvisor</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"El servicio es de primera y el café es simplemente espectacular. El ambiente es acogedor y perfecto para trabajar o simplemente disfrutar."</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div class="review-name">
+            <strong>Camila R.</strong>
+            <span>Bucaramanga</span>
+          </div>
+          <div class="review-platform">Google</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"¡Vengan a disfrutar del mejor café de Santander! Los waffles están deliciosos y el cold brew exótico es lo mejor que he probado en mucho tiempo."</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div class="review-name">
+            <strong>Laura P.</strong>
+            <span>Bucaramanga</span>
+          </div>
+          <div class="review-platform">Google</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO: HOURS + CONTACT -->
+<section class="info" id="ubicacion">
+  <div class="container">
+    <p class="section-label">Encuéntranos</p>
+    <h2 class="section-title" style="margin-bottom:48px;">Ubicación y Horarios</h2>
+
+    <div class="info-grid">
+      <div>
+        <div class="info-card" style="margin-bottom:24px;">
+          <div class="info-card-title"><span>🕐</span> Horarios</div>
+          <div class="hours-row">
+            <span class="hours-day">Lunes – Jueves</span>
+            <span class="hours-time">8:30 AM – 8:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Viernes – Sábado</span>
+            <span class="hours-time">8:30 AM – 8:30 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Domingo</span>
+            <span class="hours-time">8:30 AM – 8:00 PM</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title"><span>✨</span> Servicios</div>
+          <div class="services-grid">
+            <div class="service-badge"><span>🐾</span> Pet-friendly</div>
+            <div class="service-badge"><span>📶</span> WiFi gratis</div>
+            <div class="service-badge"><span>🚗</span> Parqueadero</div>
+            <div class="service-badge"><span>🌿</span> Terraza exterior</div>
+            <div class="service-badge"><span>♿</span> Acceso sillas de ruedas</div>
+            <div class="service-badge"><span>💳</span> Tarjetas de crédito</div>
+            <div class="service-badge"><span>🛵</span> Domicilios</div>
+            <div class="service-badge"><span>🥡</span> Para llevar</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contacto">
+        <div class="info-card">
+          <div class="info-card-title"><span>📍</span> Contacto</div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Dirección</div>
+              <div class="contact-value">Cl. 46 #34-46, Bucaramanga, Santander</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Teléfono / WhatsApp</div>
+              <div class="contact-value"><a href="https://wa.me/573222239660">+57 322 2239660</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:cafetopiabga@gmail.com">cafetopiabga@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📸</div>
+            <div>
+              <div class="contact-label">Instagram</div>
+              <div class="contact-value"><a href="https://www.instagram.com/cafetopiacol/" target="_blank">@cafetopiacol</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎵</div>
+            <div>
+              <div class="contact-label">TikTok</div>
+              <div class="contact-value"><a href="https://www.tiktok.com/@cafetopiacol" target="_blank">@cafetopiacol</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <div>
+            <div style="font-size:2rem;margin-bottom:8px;">📍</div>
+            <div style="font-weight:600;color:var(--text-mid);margin-bottom:4px;">Cl. 46 #34-46, Bucaramanga</div>
+            <a class="map-link" href="https://maps.google.com/?q=Cafetopia+Bucaramanga+Calle+46+34-46" target="_blank">Ver en Google Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Listo para el mejor café<br/>de Santander?</h2>
+    <p>Ven a visitarnos en Bucaramanga o escríbenos por WhatsApp. Aquí siempre hay una taza esperándote.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/573222239660?text=Hola%20Cafetopía!%20Me%20gustaría%20saber%20más%20sobre%20su%20carta." target="_blank" class="btn btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a href="https://www.instagram.com/cafetopiacol/" target="_blank" class="btn btn-light">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Seguir en Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cafeto<em>pía</em></div>
+  <p class="footer-tagline">Mejor Café de Santander 2025 · Bucaramanga, Colombia</p>
+  <div class="footer-socials">
+    <a class="social-btn" href="https://www.instagram.com/cafetopiacol/" target="_blank" title="Instagram">📸</a>
+    <a class="social-btn" href="https://www.tiktok.com/@cafetopiacol" target="_blank" title="TikTok">🎵</a>
+    <a class="social-btn" href="https://www.facebook.com/profile.php?id=100077341129554" target="_blank" title="Facebook">📘</a>
+    <a class="social-btn" href="https://wa.me/573222239660" target="_blank" title="WhatsApp">💬</a>
+  </div>
+  <p class="footer-copy">© 2025 Cafetopía. Cl. 46 #34-46, Bucaramanga, Santander · cafetopiabga@gmail.com</p>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Menu tabs
+  function showTab(id, btn) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
