@@ -94,7 +94,18 @@
     }
     @media (max-width: 1100px) { .catalog-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 750px)  { .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-    @media (max-width: 480px)  { .catalog-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) {
+      .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: .65rem; }
+      .card-info { padding: .6rem .65rem .75rem; gap: .1rem; }
+      .card-name  { font-size: .76rem; }
+      .card-brand { font-size: .6rem; }
+      .card-price { font-size: .82rem; }
+      .card-original { font-size: .68rem; }
+      .card-discount { font-size: .58rem; }
+      .card-rating { font-size: .62rem; }
+      .card-badge { font-size: .58rem; padding: .15rem .45rem; }
+      .card-plus { width: 30px; height: 30px; font-size: 1.1rem; }
+    }
 
     /* ── PRODUCT CARD ── */
     .product-card {
