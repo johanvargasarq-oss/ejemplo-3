@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENERGYM BGA | Gimnasio · Bucaramanga</title>
+  <meta name="description" content="El gimnasio más completo de Bucaramanga. Entrenamiento funcional, rumba, máquinas, cafetería y más. Únete a la familia ENERGYM.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:        #0A0A0C;
+      --dark:         #111116;
+      --card:         #16161E;
+      --dark2:        #1C1C26;
+      --border:       #22222E;
+      --border2:      #2C2C3C;
+      --purple:       #9B35D9;
+      --purple2:      #7B20B9;
+      --purple-glow:  rgba(155, 53, 217, .12);
+      --green:        #3DDE5A;
+      --green2:       #28C444;
+      --green-glow:   rgba(61, 222, 90, .1);
+      --text:         #C0C0CC;
+      --muted:        #70708A;
+      --radius:       6px;
+      --radius-lg:    14px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+    ::selection { background: var(--purple); color: #fff; }
+    .raj { font-family: 'Rajdhani', sans-serif; }
+    .section-label { font-size: .58rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--purple); display: inline-block; margin-bottom: .8rem; }
+    .section-label.green { color: var(--green); }
+    .section-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.1; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      background: var(--purple); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.25); transition: all .3s;
+    }
+    nav.scrolled { background: var(--purple2); box-shadow: 0 4px 30px rgba(0,0,0,.5); }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: .72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.75); transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--green); color: var(--black);
+      font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: .6rem 1.2rem; border-radius: var(--radius); transition: all .2s;
+    }
+    .nav-cta:hover { background: var(--green2); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: stretch;
+      position: relative; overflow: hidden; background: var(--black);
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 70% 80% at 65% 50%, rgba(155, 53, 217, .07) 0%, transparent 65%); }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(155,53,217,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(155,53,217,.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+    .hero-glow-1 { width: 600px; height: 600px; background: rgba(155,53,217,.06); top: -100px; right: -50px; }
+    .hero-glow-2 { width: 300px; height: 300px; background: rgba(61,222,90,.04); bottom: 0; left: 40%; }
+
+    .hero-photo-col {
+      position: relative; z-index: 1;
+      width: 55%; min-height: 100vh; flex-shrink: 0; overflow: hidden;
+    }
+    .hero-photo-col video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: brightness(.85) saturate(1.1); }
+    .hero-photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(10,10,12,0) 55%, rgba(10,10,12,1) 100%),
+                  linear-gradient(to bottom, rgba(10,10,12,.4) 0%, transparent 20%, transparent 80%, rgba(10,10,12,.65) 100%);
+    }
+    .hero-photo-tag {
+      position: absolute; bottom: 2.5rem; left: 2rem;
+      background: rgba(10,10,12,.75); border: 1px solid rgba(155,53,217,.3);
+      backdrop-filter: blur(8px); border-radius: var(--radius);
+      padding: .5rem 1rem;
+      font-size: .58rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--purple);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
+      padding: 100px 5% 80px 4%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: rgba(155,53,217,.08); border: 1px solid rgba(155,53,217,.22);
+      border-radius: 100px; padding: .4rem 1.2rem;
+      font-size: .65rem; font-weight: 600; letter-spacing: 2px; color: var(--purple); text-transform: uppercase;
+      margin-bottom: 1.8rem; align-self: flex-start;
+    }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+    .hero-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(2.4rem,5vw,5.2rem); font-weight: 700; text-transform: uppercase; color: #fff; line-height: .95; margin-bottom: 1.2rem; letter-spacing: -1px; }
+    .hero-title .accent-p { color: var(--purple); }
+    .hero-title .accent-g { color: var(--green); }
+    .hero-sub { font-size: .88rem; color: var(--muted); margin-bottom: 2.5rem; max-width: 460px; line-height: 1.9; }
+    .hero-stats { display: flex; gap: 2.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .hero-stat { text-align: left; }
+    .hero-stat-num { font-family: 'Rajdhani', sans-serif; font-size: 2rem; font-weight: 700; color: var(--purple); line-height: 1; }
+    .hero-stat-num.green { color: var(--green); }
+    .hero-stat-label { font-size: .6rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
+    .hero-sep { width: 1px; background: var(--border2); align-self: stretch; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-purple { display: inline-flex; align-items: center; gap: .5rem; background: var(--purple); color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: .95rem 2rem; border-radius: var(--radius); transition: all .2s; }
+    .btn-purple:hover { background: var(--purple2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(155,53,217,.3); }
+    .btn-green { display: inline-flex; align-items: center; gap: .5rem; background: var(--green); color: var(--black); font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: .95rem 2rem; border-radius: var(--radius); transition: all .2s; }
+    .btn-green:hover { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(61,222,90,.25); }
+    .btn-outline { display: inline-flex; align-items: center; gap: .5rem; background: transparent; color: var(--text); font-size: .7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: .95rem 1.8rem; border: 1px solid var(--border2); border-radius: var(--radius); transition: all .2s; }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+    .hero-scroll { position: absolute; bottom: 2rem; right: 5%; display: flex; flex-direction: column; align-items: center; gap: .5rem; z-index: 1; }
+    .hero-scroll span { font-size: .55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+    .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--purple), transparent); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; }
+      .hero-photo-col { width: 100%; min-height: 45vw; max-height: 300px; }
+      .hero-photo-overlay { background: linear-gradient(to bottom, transparent 60%, rgba(10,10,12,1) 100%); }
+      .hero-inner { padding: 1.2rem 5% 4rem; }
+      .hero-badge { align-self: center; }
+      .hero-title, .hero-sub { text-align: center; }
+      .hero-stats { justify-content: center; }
+      .hero-actions { justify-content: center; }
+    }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+    /* SERVICIOS */
+    .servicios-section { background: var(--dark); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .servicio-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 1rem; transition: all .3s; position: relative; overflow: hidden;
+    }
+    .servicio-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--green));
+      transform: scaleX(0); transition: transform .3s; transform-origin: left;
+    }
+    .servicio-card:hover { border-color: rgba(155,53,217,.35); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.35), 0 0 0 1px rgba(155,53,217,.08); }
+    .servicio-card:hover::before { transform: scaleX(1); }
+    .servicio-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(155,53,217,.1); border: 1px solid rgba(155,53,217,.2);
+      display: flex; align-items: center; justify-content: center; transition: all .3s;
+    }
+    .servicio-card:hover .servicio-icon { background: rgba(155,53,217,.2); border-color: rgba(155,53,217,.45); }
+    .servicio-icon svg { width: 28px; height: 28px; stroke: var(--purple); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .servicio-icon.green-icon { background: rgba(61,222,90,.1); border-color: rgba(61,222,90,.2); }
+    .servicio-card:hover .servicio-icon.green-icon { background: rgba(61,222,90,.2); border-color: rgba(61,222,90,.4); }
+    .servicio-icon.green-icon svg { stroke: var(--green); }
+    .servicio-name { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: #fff; letter-spacing: 1px; }
+    .servicio-desc { font-size: .75rem; color: var(--muted); line-height: 1.7; }
+
+    /* VIDEO FULLWIDTH */
+    .video-full-section { position: relative; background: #000; overflow: hidden; }
+    .video-full-section video { width: 100%; display: block; max-height: 85vh; min-height: 400px; object-fit: cover; }
+    .video-full-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to bottom, rgba(10,10,12,.55) 0%, transparent 35%, transparent 65%, rgba(10,10,12,.75) 100%);
+    }
+    .video-full-label {
+      position: absolute; bottom: 3.5rem; left: 5%;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    .video-full-label .vfl-tag { font-size: .58rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--green); display: block; margin-bottom: .5rem; }
+    .video-full-label .vfl-title { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.1; }
+    .video-full-label .vfl-title span { color: var(--purple); }
+
+    /* PROFESIONALES */
+    /* EQUIPO */
+    .team-section { background: var(--dark); padding: 7rem 6%; }
+    .team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    .team-card { text-align: center; }
+    .team-photo {
+      width: 100%; aspect-ratio: 3/4; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;
+      position: relative; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .4s; }
+    .team-card:hover .team-photo img { transform: scale(1.04); }
+    .team-photo-placeholder {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(61,222,90,.12); border: 2px solid rgba(61,222,90,.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .team-photo-placeholder svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+    .team-name { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .25rem; }
+    .team-role { font-size: .72rem; color: var(--green); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 960px) { .team-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 500px) { .team-grid { grid-template-columns: 1fr 1fr; gap: .7rem; } }
+
+    .profesionales-section { background: var(--dark); }
+    .prof-grid { display: none; }
+    .prof-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(10,10,12,.92) 100%);
+    }
+    .prof-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.4rem 1.2rem; }
+    .prof-card-role { font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--purple); margin-bottom: .3rem; }
+    .prof-card-name { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.15; }
+    .prof-card-desc { font-size: .7rem; color: var(--muted); margin-top: .35rem; line-height: 1.5; }
+    .prof-card-tag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      margin-top: .6rem; background: rgba(155,53,217,.15); border: 1px solid rgba(155,53,217,.25);
+      border-radius: 100px; padding: .25rem .7rem;
+      font-size: .52rem; font-weight: 700; letter-spacing: 1.5px; color: var(--purple); text-transform: uppercase;
+    }
+    .prof-card-tag.green { background: rgba(61,222,90,.12); border-color: rgba(61,222,90,.25); color: var(--green); }
+
+    @media (max-width: 960px) { .prof-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .prof-grid { grid-template-columns: repeat(2, 1fr); gap: .7rem; } }
+
+    /* GALERÍA */
+    .gallery-section { background: var(--dark); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: var(--radius); aspect-ratio: 1; background: var(--dark2); cursor: pointer; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(155,53,217,.5) 100%); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 1.2rem; }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-icon { color: #fff; font-family: 'Rajdhani', sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+    /* HORARIOS */
+    .horarios-section { background: var(--black); }
+    .horarios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .horario-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem; }
+    .horario-day { font-family: 'Rajdhani', sans-serif; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; color: var(--purple); margin-bottom: .8rem; }
+    .horario-time { font-size: .82rem; color: var(--text); display: flex; align-items: center; gap: .5rem; margin-bottom: .4rem; }
+    .horario-time svg { width: 14px; height: 14px; stroke: var(--green); stroke-width: 2; flex-shrink: 0; }
+    .horario-closed { font-size: .82rem; color: var(--muted); font-style: italic; }
+
+    /* CONTACTO */
+    .contact-section { background: var(--dark); position: relative; overflow: hidden; }
+    .contact-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(155,53,217,.08) 0%, transparent 70%); }
+    .contact-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
+    .contact-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(2rem,5vw,4rem); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.05; margin-bottom: 1rem; }
+    .contact-title span { color: var(--green); }
+    .contact-sub { font-size: .88rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.9; }
+    .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-wa { display: inline-flex; align-items: center; gap: .6rem; background: #25D366; color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 2rem; border-radius: var(--radius); transition: all .2s; }
+    .btn-wa:hover { background: #1DAA54; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.3); }
+    .btn-ig { display: inline-flex; align-items: center; gap: .6rem; background: transparent; color: var(--text); font-size: .72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 1.8rem; border: 1px solid var(--border2); border-radius: var(--radius); transition: all .2s; }
+    .btn-ig:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* IG GRID */
+    .ig-section { background: var(--black); }
+    .ig-header { text-align: center; margin-bottom: 2.5rem; }
+    .ig-handle { font-size: .72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--purple); text-decoration: none; display: inline-block; margin-bottom: .8rem; border-bottom: 1px solid rgba(155,53,217,.3); padding-bottom: .2rem; }
+    .ig-handle:hover { color: var(--green); }
+    .ig-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 700; color: #fff; margin-bottom: .7rem; }
+    .ig-title em { font-style: italic; color: var(--green); font-family: Georgia, serif; font-weight: 400; }
+    .ig-sub { font-size: .82rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.8; }
+    .ig-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .6rem; margin-top: 2.5rem; }
+    .ig-item { position: relative; aspect-ratio: 9/16; overflow: hidden; border-radius: var(--radius); background: var(--card); cursor: pointer; }
+    .ig-item video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .ig-item:hover video { transform: scale(1.05); }
+    .ig-item-overlay { position: absolute; inset: 0; background: rgba(10,10,12,.4); opacity: 0; transition: opacity .3s; display: flex; align-items: center; justify-content: center; }
+    .ig-item:hover .ig-item-overlay { opacity: 1; }
+    .ig-play-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center; }
+    .ig-play-icon svg { width: 18px; height: 18px; fill: var(--black); margin-left: 3px; }
+    @media (max-width: 960px) { .ig-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 600px) { .ig-grid { grid-template-columns: repeat(3, 1fr); gap: .4rem; } }
+
+    /* CARRUSEL PAC */
+    .pac-section { background: var(--black); padding: 7rem 0 5rem; }
+    .pac-header { text-align: center; margin-bottom: 4rem; padding: 0 6%; }
+    .pac-title {
+      font-family: 'Rajdhani', sans-serif; font-size: clamp(1rem,2.2vw,1.5rem);
+      font-weight: 700; letter-spacing: 6px; color: #fff; text-transform: uppercase;
+      display: inline-block;
+    }
+    .pac-title::after { content: ''; display: block; width: 36px; height: 2px; background: var(--green); margin: .9rem auto 0; }
+    .pac-viewport {
+      position: relative; height: 680px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pac-hover-zone {
+      position: absolute; top: 0; bottom: 0; width: 50%; z-index: 20;
+      display: flex; align-items: center;
+      opacity: 0; transition: opacity .25s; cursor: pointer;
+    }
+    .pac-hover-zone:hover { opacity: 1; }
+    .pac-prev-zone { left: 0; justify-content: flex-start; padding-left: 3%; background: linear-gradient(to right,rgba(0,0,0,.5),transparent); }
+    .pac-next-zone { right: 0; justify-content: flex-end; padding-right: 3%; background: linear-gradient(to left,rgba(0,0,0,.5),transparent); }
+    .pac-arrow-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.55); background: rgba(0,0,0,.25);
+      display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;
+      backdrop-filter: blur(4px); transition: border-color .2s, background .2s;
+    }
+    .pac-hover-zone:hover .pac-arrow-btn { border-color: var(--green); background: rgba(61,222,90,.12); color: var(--green); }
+    .pac-item {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%,-50%) translateX(0px);
+      border-radius: 16px; overflow: hidden;
+      transition: all .45s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
+    }
+    .pac-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pac-item.active { width: 360px; height: 640px; z-index: 5; opacity: 1; filter: none; box-shadow: 0 28px 72px rgba(0,0,0,.8); }
+    .pac-item.side   { width: 240px; height: 426px; z-index: 3; opacity: .5; filter: brightness(.55); }
+    .pac-item.far    { width: 170px; height: 302px; z-index: 1; opacity: .18; filter: brightness(.35); }
+    .pac-item.off    { width: 130px; height: 231px; z-index: 0; opacity: 0; pointer-events: none; }
+    .pac-play-icon {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.12); transition: opacity .25s;
+    }
+    .pac-item.playing .pac-play-icon { opacity: 0; }
+    .pac-item.playing:hover .pac-play-icon { opacity: 1; }
+    .pac-dots { display: flex; justify-content: center; gap: .55rem; margin-top: 2.8rem; }
+    .pac-dot {
+      width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+      background: rgba(255,255,255,.2); transition: background .25s, transform .25s;
+    }
+    .pac-dot.active { background: var(--green); transform: scale(1.5); }
+    @media (max-width: 900px) {
+      .pac-viewport { height: 580px; }
+      .pac-item.active { width: 300px; height: 533px; }
+      .pac-item.side   { width: 195px; height: 346px; }
+    }
+    @media (max-width: 600px) {
+      .pac-viewport { height: 440px; }
+      .pac-item.active { width: 220px; height: 391px; }
+      .pac-item.side   { width: 145px; height: 258px; }
+      .pac-item.far, .pac-item.off { opacity: 0 !important; pointer-events: none; }
+    }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border2); cursor: pointer; transition: all .2s; }
+    .carousel-dot.active { background: var(--purple); transform: scale(1.3); }
+
+    /* LEAD POPUP */
+    .lead-popup-bg {
+      position: fixed; inset: 0; z-index: 99999;
+      background: rgba(0,0,0,.75); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .lead-popup-bg.open { opacity: 1; pointer-events: all; }
+    .lead-popup {
+      background: #111; border: 1px solid rgba(61,222,90,.25);
+      border-radius: 20px; width: 100%; max-width: 440px;
+      box-shadow: 0 0 0 1px rgba(61,222,90,.08), 0 40px 100px rgba(0,0,0,.8);
+      overflow: hidden; position: relative;
+      transform: translateY(30px); transition: transform .4s ease;
+    }
+    .lead-popup-bg.open .lead-popup { transform: translateY(0); }
+    .lead-popup-top {
+      background: var(--purple); padding: 1.8rem 2rem 1.4rem;
+      text-align: center; position: relative;
+    }
+    .lead-popup-logo { height: 38px; width: auto; margin-bottom: .9rem; }
+    .lead-popup-title {
+      font-family: 'Rajdhani', sans-serif; font-size: 1.35rem; font-weight: 800;
+      color: #fff; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2;
+    }
+    .lead-popup-sub { font-size: .75rem; color: rgba(255,255,255,.75); margin-top: .4rem; line-height: 1.6; }
+    .lead-popup-body { padding: 1.6rem 2rem 2rem; }
+    .lead-field { margin-bottom: 1rem; }
+    .lead-field label { display: block; font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: .4rem; }
+    .lead-field input {
+      width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px; padding: .8rem 1rem; font-size: .88rem; color: #fff;
+      outline: none; transition: border-color .2s; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    .lead-field input:focus { border-color: var(--green); }
+    .lead-field input::placeholder { color: rgba(255,255,255,.3); }
+    .lead-submit {
+      width: 100%; padding: 1rem; border: none; border-radius: 10px;
+      background: var(--green); color: #000; font-family: 'Rajdhani', sans-serif;
+      font-size: .9rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; margin-top: .5rem; transition: opacity .2s;
+    }
+    .lead-submit:hover { opacity: .88; }
+    .lead-skip {
+      display: block; text-align: center; margin-top: 1rem;
+      font-size: .65rem; color: rgba(255,255,255,.35); cursor: pointer;
+      letter-spacing: 1px; text-decoration: underline;
+      background: none; border: none; width: 100%;
+    }
+    .lead-skip:hover { color: rgba(255,255,255,.6); }
+    .lead-popup-close {
+      position: absolute; top: .8rem; right: .8rem;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(0,0,0,.3); border: none; color: rgba(255,255,255,.7);
+      cursor: pointer; font-size: .85rem; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lead-popup-close:hover { background: rgba(0,0,0,.6); color: #fff; }
+
+    /* MODAL TOUR */
+    .tour-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.92); backdrop-filter: blur(8px);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 2rem; opacity: 0; pointer-events: none; transition: opacity .35s;
+    }
+    .tour-modal.open { opacity: 1; pointer-events: all; }
+    .tour-modal-inner { width: 100%; max-width: 860px; display: flex; flex-direction: column; gap: 1.4rem; }
+    .tour-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .tour-modal-title { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+    .tour-modal-subtitle { font-size: .82rem; color: rgba(255,255,255,.55); margin-top: .3rem; line-height: 1.6; max-width: 560px; }
+    .tour-modal-close {
+      width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.07); color: #fff; cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      transition: border-color .2s, background .2s;
+    }
+    .tour-modal-close:hover { border-color: var(--green); background: rgba(61,222,90,.1); color: var(--green); }
+    .tour-video-wrap {
+      width: 100%; border-radius: 14px; overflow: hidden;
+      border: 2px solid rgba(155,53,217,.4);
+      box-shadow: 0 0 0 1px rgba(61,222,90,.1), 0 32px 80px rgba(0,0,0,.7);
+      background: #000; position: relative;
+    }
+    .tour-video-wrap video { width: 100%; display: block; max-height: 72vh; }
+    .visita-virtual-card:hover { border-color: rgba(155,53,217,.5) !important; }
+
+    /* PLANES */
+    .planes-section { background: var(--black); padding: 7rem 6%; }
+    .planes-filters { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .plan-filter-btn {
+      padding: .55rem 1.4rem; border-radius: 999px; font-size: .72rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+      border: 2px solid var(--green); color: var(--green); background: transparent;
+      transition: background .2s, color .2s;
+    }
+    .plan-filter-btn.active, .plan-filter-btn:hover { background: var(--green); color: #000; }
+    .planes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; align-items: start; }
+    .plan-card {
+      background: #181818; border: 1px solid #2a2a2a; border-radius: 16px;
+      overflow: hidden; display: flex; flex-direction: column; position: relative;
+    }
+    .plan-card.featured { border-color: var(--green); box-shadow: 0 0 0 1px var(--green), 0 24px 60px rgba(61,222,90,.15); }
+    .plan-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--green); color: #000; font-size: .62rem; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: .35rem 1.1rem;
+      border-radius: 0 0 10px 10px; white-space: nowrap; z-index: 2;
+    }
+    .plan-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; position: relative; }
+    .plan-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .plan-img-placeholder { width: 100%; aspect-ratio: 4/3; background: #222; display: flex; align-items: center; justify-content: center; }
+    .plan-img-placeholder svg { width: 48px; height: 48px; stroke: #444; fill: none; stroke-width: 1.5; }
+    .plan-label-overlay {
+      position: absolute; bottom: .8rem; right: .8rem;
+      font-family: 'Rajdhani', sans-serif; font-size: .65rem; font-weight: 800;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--green);
+      text-shadow: 0 2px 8px rgba(0,0,0,.8);
+    }
+    .plan-body { padding: 1.6rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
+    .plan-name { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--green); letter-spacing: 1px; text-transform: uppercase; }
+    .plan-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+    .plan-price { font-family: 'Rajdhani', sans-serif; font-size: 1.9rem; font-weight: 800; color: #fff; line-height: 1; }
+    .plan-price span { font-size: 1rem; }
+    .plan-price-note { font-size: .68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--green); }
+    .plan-detail { font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .5px; }
+    .plan-detail strong { color: var(--green); }
+    .plan-disclaimer { font-size: .62rem; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: .6rem; text-decoration: underline; cursor: pointer; }
+    .plan-cta {
+      width: 100%; padding: .85rem; border-radius: 8px; font-family: 'Rajdhani', sans-serif;
+      font-size: .85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; border: none; transition: opacity .2s;
+      background: #111; color: #fff;
+    }
+    .plan-card.featured .plan-cta { background: var(--green); color: #000; }
+    .plan-cta:hover { opacity: .85; }
+    .plan-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.6rem; border-top: 1px solid #2a2a2a;
+      font-size: .72rem; font-weight: 700; color: rgba(255,255,255,.6);
+      cursor: pointer; user-select: none;
+    }
+    .plan-toggle-icon { transition: transform .3s; font-size: .9rem; }
+    .plan-includes { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .plan-includes.open { max-height: 300px; }
+    .plan-includes-inner { padding: 0 1.6rem 1.2rem; display: flex; flex-direction: column; gap: .5rem; }
+    .plan-include-item { display: flex; align-items: center; gap: .6rem; font-size: .75rem; color: rgba(255,255,255,.75); }
+    .plan-include-item::before { content: '✓'; color: var(--green); font-weight: 800; font-size: .8rem; flex-shrink: 0; }
+    .plan-test-note { text-align: center; font-size: .7rem; color: rgba(255,255,255,.3); margin-top: 1.5rem; font-style: italic; }
+    @media (max-width: 900px) { .planes-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* RESEÑAS */
+    .reviews-section { background: var(--dark); padding: 7rem 6%; }
+    .reviews-track-wrap { overflow: hidden; margin-top: 3rem; position: relative; }
+    .reviews-track { display: flex; gap: 1.2rem; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+    .review-card {
+      min-width: 320px; max-width: 320px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem;
+      display: flex; flex-direction: column; gap: 1rem; flex-shrink: 0;
+    }
+    .review-source { display: flex; align-items: center; gap: .55rem; }
+    .review-source-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    .review-source-icon.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .review-source-icon.fb { background: #1877f2; }
+    .review-source-icon svg { width: 16px; height: 16px; fill: #fff; }
+    .review-source-name { font-size: .6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .review-text { font-size: .85rem; color: rgba(255,255,255,.82); line-height: 1.7; flex: 1; }
+    .review-text strong { color: #fff; }
+    .review-footer { display: flex; align-items: center; justify-content: space-between; }
+    .review-author { display: flex; align-items: center; gap: .7rem; }
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: .95rem; color: #fff;
+    }
+    .review-author-name { font-size: .8rem; font-weight: 600; color: #fff; }
+    .review-author-city { font-size: .65rem; color: var(--muted); }
+    .review-stars { color: #f5c518; font-size: .8rem; font-weight: 700; }
+    .reviews-nav { display: flex; justify-content: center; gap: .8rem; margin-top: 2rem; }
+    .reviews-nav-btn {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--card); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, background .2s;
+    }
+    .reviews-nav-btn:hover { border-color: var(--green); background: rgba(61,222,90,.1); color: var(--green); }
+    .reviews-dots { display: flex; justify-content: center; gap: .5rem; margin-top: 1.2rem; }
+    .reviews-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.2); border: none; cursor: pointer; transition: background .25s, transform .25s; }
+    .reviews-dot.active { background: var(--green); transform: scale(1.5); }
+    @media (max-width: 600px) { .review-card { min-width: 280px; max-width: 280px; } }
+
+    /* VALORACIÓN FORM */
+    .form-section { background: var(--black); }
+    .form-box {
+      max-width: 780px; margin: 0 auto;
+      background: var(--card); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 3.5rem 3rem;
+      box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    }
+    .form-box-label { font-size: .58rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--green); display: block; text-align: center; margin-bottom: .6rem; }
+    .form-box-title { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 700; color: #fff; text-align: center; margin-bottom: .5rem; }
+    .form-box-title em { font-style: italic; color: var(--purple); font-family: Georgia,serif; font-weight: 400; }
+    .form-box-sub { font-size: .82rem; color: var(--muted); text-align: center; margin-bottom: 2.5rem; line-height: 1.8; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .form-field input, .form-field select, .form-field textarea {
+      background: var(--dark2); border: 1px solid var(--border2); border-radius: var(--radius);
+      padding: .85rem 1rem; font-family: 'Inter', sans-serif; font-size: .82rem;
+      color: var(--text); outline: none; transition: border-color .2s;
+      width: 100%;
+    }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--muted); }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--purple); }
+    .form-field select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .form-field select option { background: var(--dark2); }
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--purple);
+      color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; border-radius: var(--radius);
+      cursor: pointer; transition: all .2s; border: none; margin-top: .5rem;
+      display: flex; align-items: center; justify-content: center; gap: .7rem;
+    }
+    .form-submit:hover { background: var(--purple2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(155,53,217,.35); }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-box { padding: 2.5rem 1.5rem; } }
+
+    /* UBICACIÓN */
+    .ubicacion-section { background: var(--dark); }
+    .ubicacion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .ubicacion-info { display: flex; flex-direction: column; gap: 1.8rem; }
+    .info-block {}
+    .info-block-label { font-size: .55rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--purple); margin-bottom: .5rem; }
+    .info-block-value { font-size: .9rem; color: var(--text); line-height: 1.7; }
+    .info-block-value strong { color: #fff; font-size: 1rem; }
+    .wa-btn-ubicacion { display: inline-flex; align-items: center; gap: .6rem; background: #25D366; color: #fff; font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: .85rem 1.6rem; border-radius: var(--radius); transition: all .2s; }
+    .wa-btn-ubicacion:hover { background: #1DAA54; transform: translateY(-2px); }
+    .map-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border2); cursor: pointer; position: relative; aspect-ratio: 4/3; }
+    .map-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .map-wrap:hover img { transform: scale(1.03); }
+    .map-overlay { position: absolute; inset: 0; background: rgba(10,10,12,.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+    .map-wrap:hover .map-overlay { opacity: 1; }
+    .map-cta { background: var(--purple); color: #fff; font-family: 'Rajdhani',sans-serif; font-size: .9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: .7rem 1.5rem; border-radius: var(--radius); }
+    @media (max-width: 900px) { .ubicacion-grid { grid-template-columns: 1fr; } }
+
+    /* FOOTER */
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 3rem 5%; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo img { height: 36px; width: auto; display: block; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: .62rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+    .footer-links a:hover { color: var(--purple); }
+    .footer-copy { font-size: .62rem; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) { .servicios-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 960px) {
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .videos-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .horarios-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .servicios-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.tall { grid-row: span 1; }
+      .horarios-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+      .hero-sep { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#inicio">
+    <img src="assets/energymbucaramanga/logo.png" alt="ENERGYM BGA">
+  </a>
+  <div class="nav-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#profesionales">Equipo</a>
+    <a href="#planes">Planes</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/573053600019?text=Hola%20ENERGYM%2C%20quiero%20información%20sobre%20el%20gimnasio" target="_blank" class="nav-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.383A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="hero-photo-col">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/energymbucaramanga/foto_01.jpg">
+      <source src="assets/energymbucaramanga/video_hero.mp4" type="video/mp4">
+      <source src="assets/energymbucaramanga/video_01.mp4" type="video/mp4">
+    </video>
+    <div class="hero-photo-overlay"></div>
+    <div class="hero-photo-tag">@energymbucaramanga · Bucaramanga</div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="hero-dot"></span>Gimnasio · Bucaramanga</div>
+    <h1 class="hero-title">
+      Tu mejor<br>
+      versión<br>
+      <span class="accent-g">empieza aquí</span>
+    </h1>
+    <p class="hero-sub">Entrenamiento funcional, rumba, máquinas y mucho más en el corazón de Bucaramanga. Únete a la familia ENERGYM y transforma tu vida.</p>
+    <div class="hero-actions">
+      <a href="#servicios" class="btn-purple">Ver Servicios</a>
+      <a href="#contacto" class="btn-green">Únete Ya</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+</section>
+
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Lo que ofrecemos</span>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:.8rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;">Todo lo que necesitas para alcanzar tu mejor versión en un solo lugar</p>
+    </div>
+    <div class="servicios-grid">
+
+      <!-- RUMBA -->
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 9l12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div class="servicio-name">Rumba</div>
+        <div class="servicio-desc">Clases de rumba fitness con instructores certificados. Quema calorías bailando y diviértete al máximo.</div>
+      </div>
+
+      <!-- FUNCIONAL -->
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.5 6.5h11M6.5 17.5h11M4 12h16M9 5.5V2M15 5.5V2M9 22v-3.5M15 22v-3.5"/></svg>
+        </div>
+        <div class="servicio-name">Funcional</div>
+        <div class="servicio-desc">Entrenamiento funcional de alta intensidad. Mejora tu fuerza, resistencia y flexibilidad con ejercicios funcionales.</div>
+      </div>
+
+      <!-- MAQUINAS -->
+      <div class="servicio-card">
+        <div class="servicio-icon green-icon">
+          <svg viewBox="0 0 24 24" stroke="var(--green)"><rect x="2" y="8" width="6" height="8" rx="1"/><rect x="16" y="8" width="6" height="8" rx="1"/><path d="M8 12h8M2 12H1M23 12h-1"/></svg>
+        </div>
+        <div class="servicio-name">Máquinas</div>
+        <div class="servicio-desc">Equipos de última tecnología para entrenamiento de fuerza y cardio. Zona de pesas y máquinas completa.</div>
+      </div>
+
+      <!-- ACOMPAÑAMIENTO -->
+      <div class="servicio-card">
+        <div class="servicio-icon green-icon">
+          <svg viewBox="0 0 24 24" stroke="var(--green)"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="servicio-name">Acompañamiento</div>
+        <div class="servicio-desc">Entrenamiento personalizado con coaches dedicados. Tu progreso es nuestra misión.</div>
+      </div>
+
+      <!-- CAFETERIA -->
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="servicio-name">Cafetería</div>
+        <div class="servicio-desc">Nutrición antes y después de entrenar. Suplementos, batidos proteicos y snacks saludables para potenciar tu rendimiento.</div>
+      </div>
+
+      <!-- FAMILIA -->
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="servicio-name">Familia</div>
+        <div class="servicio-desc">Planes familiares y grupos especiales. Una comunidad que se apoya mutuamente para lograr sus metas de salud.</div>
+      </div>
+
+      <!-- HORARIO -->
+      <div class="servicio-card">
+        <div class="servicio-icon green-icon">
+          <svg viewBox="0 0 24 24" stroke="var(--green)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="servicio-name">Horario Flexible</div>
+        <div class="servicio-desc">Horarios adaptados a tu rutina. Mañanas, tardes y noches disponibles para que nunca faltes a tu entrenamiento.</div>
+      </div>
+
+      <!-- FITNESS GENERAL -->
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="servicio-name">Fitness</div>
+        <div class="servicio-desc">Programas de fitness integral diseñados para todos los niveles. Desde principiantes hasta atletas avanzados.</div>
+      </div>
+
+      <!-- VISITA VIRTUAL -->
+      <div class="servicio-card visita-virtual-card" onclick="openTourModal()" style="cursor:pointer;">
+        <div class="servicio-icon" style="background:rgba(155,53,217,.15);border-color:rgba(155,53,217,.4);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            <path d="M3.6 9h16.8M3.6 15h16.8"/>
+          </svg>
+        </div>
+        <div class="servicio-name">Visita Virtual</div>
+        <div class="servicio-desc">Recorre nuestras instalaciones desde donde estés. Conoce el gym antes de visitarnos.</div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:var(--purple);text-transform:uppercase;margin-top:.2rem;">▶ Ver recorrido</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROFESIONALES -->
+<section id="profesionales" class="team-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color:var(--green);border-color:var(--green);">Nuestro equipo</span>
+      <h2 class="section-title">Entrenadores que <em>te impulsan</em></h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:.8rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;">Profesionales certificados en cada disciplina para guiarte en tu proceso de transformación.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+        </div>
+        <div class="team-name">Entrenador 1</div>
+        <div class="team-role">Funcional &amp; Fuerza</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+        </div>
+        <div class="team-name">Entrenador 2</div>
+        <div class="team-role">Rumba &amp; Aeróbicos</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+        </div>
+        <div class="team-name">Entrenador 3</div>
+        <div class="team-role">Musculación &amp; Máquinas</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <div class="team-photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+        </div>
+        <div class="team-name">Entrenador 4</div>
+        <div class="team-role">Nutrición Deportiva</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- HORARIOS -->
+<section id="horarios" class="horarios-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label green">Planifica tu semana</span>
+      <h2 class="section-title">Horarios</h2>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:.8rem;">Estamos abiertos casi todo el día para que no pierdas ninguna sesión</p>
+    </div>
+    <div class="horarios-grid">
+      <div class="horario-card">
+        <div class="horario-day">Lunes – Viernes</div>
+        <div class="horario-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          5:00 AM – 10:00 PM
+        </div>
+        <div class="horario-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Todas las clases disponibles
+        </div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-day">Sábado</div>
+        <div class="horario-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          7:00 AM – 4:00 PM
+        </div>
+        <div class="horario-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Clases de rumba y funcional
+        </div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-day">Domingo</div>
+        <div class="horario-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          8:00 AM – 1:00 PM
+        </div>
+        <div class="horario-time" style="color:var(--muted);">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--muted)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Consultar clases especiales
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;text-align:center;">
+      <a href="https://wa.me/573053600019?text=Hola%20ENERGYM%2C%20quiero%20ver%20el%20horario%20de%20clases" target="_blank" class="btn-purple" style="display:inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.383A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        Ver horario completo por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- IG GRID -->
+<section class="ig-section">
+  <div class="section-inner">
+    <div class="ig-header">
+      <a href="https://www.instagram.com/energymbucaramanga/" target="_blank" class="ig-handle">@energymbucaramanga</a>
+      <h2 class="ig-title">Síguenos en <em>Instagram</em></h2>
+      <p class="ig-sub">El día a día de nuestra comunidad, clases, logros y motivación. Parte de la familia ENERGYM.</p>
+    </div>
+    <div class="ig-grid">
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_01.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_02.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_03.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_04.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_05.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_06.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_07.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_08.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_09.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+      <a class="ig-item" href="https://www.instagram.com/energymbucaramanga/" target="_blank" rel="noopener"><video muted loop preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="assets/energymbucaramanga/ig_10.mp4" type="video/mp4"></video><div class="ig-item-overlay"><div class="ig-play-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div></a>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://www.instagram.com/energymbucaramanga/" target="_blank" class="btn-outline">Ver más en Instagram ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CARRUSEL CLIENTES -->
+<section id="clientes" class="pac-section">
+  <div class="pac-header">
+    <span class="section-label" style="color:var(--green);border-color:var(--green);">Experiencias reales</span>
+    <h2 class="pac-title">CONOCE A NUESTRA COMUNIDAD</h2>
+  </div>
+  <div class="pac-viewport" id="pacViewport">
+    <div class="pac-hover-zone pac-prev-zone" id="pacPrev">
+      <div class="pac-arrow-btn">&#8592;</div>
+    </div>
+    <div class="pac-hover-zone pac-next-zone" id="pacNext">
+      <div class="pac-arrow-btn">&#8594;</div>
+    </div>
+    <div class="pac-item" data-idx="0"><video src="assets/energymbucaramanga/ig_01.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="1"><video src="assets/energymbucaramanga/ig_02.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="2"><video src="assets/energymbucaramanga/ig_03.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="3"><video src="assets/energymbucaramanga/ig_04.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="4"><video src="assets/energymbucaramanga/ig_05.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="5"><video src="assets/energymbucaramanga/ig_06.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="6"><video src="assets/energymbucaramanga/ig_07.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="7"><video src="assets/energymbucaramanga/ig_08.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="8"><video src="assets/energymbucaramanga/ig_09.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+    <div class="pac-item" data-idx="9"><video src="assets/energymbucaramanga/ig_10.mp4" preload="metadata" playsinline loop muted></video><div class="pac-play-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="white" stroke-width="1.5" fill="rgba(0,0,0,.28)"/><polygon points="22,16 40,26 22,36" fill="white"/></svg></div></div>
+  </div>
+  <div class="pac-dots" id="pacDots"></div>
+</section>
+
+<!-- PLANES Y PRECIOS -->
+<section id="planes" class="planes-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color:var(--green);border-color:var(--green);">Planes de prueba</span>
+      <h2 class="section-title">Elige tu <em>plan ideal</em></h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:.8rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">Precios de referencia — confirma disponibilidad directamente con ENERGYM.</p>
+    </div>
+    <div class="planes-filters">
+      <button class="plan-filter-btn active" onclick="filterPlanes('todos',this)">Todos los planes</button>
+      <button class="plan-filter-btn" onclick="filterPlanes('mensual',this)">Mes a mes</button>
+      <button class="plan-filter-btn" onclick="filterPlanes('trimestral',this)">Trimestral</button>
+    </div>
+    <div class="planes-grid" id="planesGrid">
+
+      <!-- PLAN 1 -->
+      <div class="plan-card" data-tipo="mensual">
+        <div style="position:relative;">
+          <div class="plan-img-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <div class="plan-label-overlay">PLAN INICIO</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-name">Plan Inicio</div>
+          <div class="plan-desc">Empieza tu transformación sin compromisos.</div>
+          <div class="plan-price">$ 89.900 <span>1er Mes</span></div>
+          <div class="plan-price-note">Sin inscripción</div>
+          <div class="plan-detail">Después <strong>$120.000/mes</strong></div>
+          <div class="plan-detail"><strong>Sin fidelidad · Renovación mensual</strong></div>
+          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Inicio','_blank')">Consultar precio</button>
+        </div>
+        <div class="plan-toggle" onclick="togglePlan(this)">
+          <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-includes-inner">
+            <div class="plan-include-item">Acceso a sala de máquinas</div>
+            <div class="plan-include-item">Clases grupales (Rumba y Funcional)</div>
+            <div class="plan-include-item">Vestiarios y duchas</div>
+            <div class="plan-include-item">Orientación inicial con entrenador</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN 2 (destacado) -->
+      <div class="plan-card featured" data-tipo="trimestral">
+        <div class="plan-badge">Más recomendado</div>
+        <div style="position:relative;margin-top:1px;">
+          <div class="plan-img-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <div class="plan-label-overlay">PLAN PRO</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-name">Plan Pro</div>
+          <div class="plan-desc">Entrena con acompañamiento y resultados garantizados.</div>
+          <div class="plan-price">GRATIS <span>1er Mes</span></div>
+          <div class="plan-price-note">$ 15.000 de inscripción · Después $99.000/mes</div>
+          <div class="plan-detail"><strong>Fidelidad 3 meses</strong></div>
+          <div class="plan-detail">Incluye <strong>acompañamiento nutricional</strong></div>
+          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Pro','_blank')">Consultar precio</button>
+        </div>
+        <div class="plan-toggle" onclick="togglePlan(this)">
+          <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-includes-inner">
+            <div class="plan-include-item">Todo lo del Plan Inicio</div>
+            <div class="plan-include-item">Acompañamiento nutricional básico</div>
+            <div class="plan-include-item">Plan de entrenamiento personalizado</div>
+            <div class="plan-include-item">Clases de Rumba, Funcional y más</div>
+            <div class="plan-include-item">Descuento en cafetería ENERGYM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN 3 -->
+      <div class="plan-card" data-tipo="trimestral">
+        <div style="position:relative;">
+          <div class="plan-img-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <div class="plan-label-overlay">PLAN ÉLITE</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-name">Plan Élite</div>
+          <div class="plan-desc">La experiencia completa para atletas comprometidos.</div>
+          <div class="plan-price">$ 149.900 <span>1er Mes</span></div>
+          <div class="plan-price-note">Sin inscripción · Después $180.000/mes</div>
+          <div class="plan-detail"><strong>Fidelidad 6 meses</strong></div>
+          <div class="plan-detail">Incluye <strong>entrenador personal 2x semana</strong></div>
+          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Elite','_blank')">Consultar precio</button>
+        </div>
+        <div class="plan-toggle" onclick="togglePlan(this)">
+          <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
+        </div>
+        <div class="plan-includes">
+          <div class="plan-includes-inner">
+            <div class="plan-include-item">Todo lo del Plan Pro</div>
+            <div class="plan-include-item">Entrenador personal 2 veces por semana</div>
+            <div class="plan-include-item">Evaluación física mensual</div>
+            <div class="plan-include-item">Acceso VIP a todas las clases</div>
+            <div class="plan-include-item">Plan nutricional completo con nutricionista</div>
+            <div class="plan-include-item">Crédito mensual en cafetería</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="plan-test-note">⚠ Precios de referencia — confirma tarifas reales directamente con ENERGYM al +57 305 360 0019</p>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas" class="reviews-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label" style="color:var(--green);border-color:var(--green);">Lo que dicen nuestros miembros</span>
+      <h2 class="section-title">Experiencias que nos <em>motivan</em></h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:.8rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;">Reseñas reales de personas que entrenaron con nosotros y transformaron su vida.</p>
+    </div>
+    <div class="reviews-track-wrap">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"El mejor gimnasio de Bucaramanga sin duda. Los entrenadores son muy profesionales y el ambiente es increíble. <strong>¡Llevo 3 meses y los resultados se notan!</strong>"</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:var(--purple);">V</div>
+              <div><div class="review-author-name">Valentina R.</div><div class="review-author-city">Bucaramanga</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon fb"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+            <span class="review-source-name">Facebook</span>
+          </div>
+          <p class="review-text">"Llevo más de un año entrenando en ENERGYM y nunca me ha decepcionado. <strong>Las clases de rumba son espectaculares</strong> y los precios son muy accesibles para la calidad que ofrecen."</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#1877f2;">C</div>
+              <div><div class="review-author-name">Carlos M.</div><div class="review-author-city">Floridablanca</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"Me encanta el ambiente del gym. Todo el mundo es muy amable y los entrenadores siempre están pendientes de que hagas bien los ejercicios. <strong>¡Totalmente recomendado!</strong> 💪"</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:var(--green);color:#000;">L</div>
+              <div><div class="review-author-name">Laura S.</div><div class="review-author-city">Bucaramanga</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"Desde que empecé en ENERGYM cambió mi rutina completamente. <strong>Las máquinas están en perfecto estado</strong> y hay mucha variedad. La cafetería también es un plus enorme 🙌"</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#e67e22;">A</div>
+              <div><div class="review-author-name">Andrés T.</div><div class="review-author-city">Cabecera</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon fb"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+            <span class="review-source-name">Facebook</span>
+          </div>
+          <p class="review-text">"El programa de acompañamiento personalizado es lo mejor. <strong>En 2 meses bajé 8 kilos</strong> siguiendo el plan que me dieron. Los entrenadores son muy dedicados y siempre motivándote."</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#9b59b6;">M</div>
+              <div><div class="review-author-name">Marcela G.</div><div class="review-author-city">Bucaramanga</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"Vine con miedo porque nunca había ido a un gym y me recibieron con los brazos abiertos. <strong>Ambiente súper familiar y motivador.</strong> Ahora no me lo pierdo ni un día 🔥"</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:var(--purple);">S</div>
+              <div><div class="review-author-name">Sofía P.</div><div class="review-author-city">Girón</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon fb"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+            <span class="review-source-name">Facebook</span>
+          </div>
+          <p class="review-text">"Las instalaciones están siempre impecables y los horarios son muy amplios. <strong>Puedo entrenar antes del trabajo</strong> y también en la noche. Un gym completo de verdad."</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#27ae60;">J</div>
+              <div><div class="review-author-name">Juliana V.</div><div class="review-author-city">Bucaramanga</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"El funcional que dictan los martes y jueves es brutal. <strong>Nunca había sudado tanto en mi vida</strong> y me encantó. Los instructores saben mucho y te exigen sin pasarse."</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#e74c3c;">R</div>
+              <div><div class="review-author-name">Ricardo O.</div><div class="review-author-city">Piedecuesta</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-source">
+            <div class="review-source-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+            <span class="review-source-name">Instagram</span>
+          </div>
+          <p class="review-text">"La cafetería es un punto clave. Después de entrenar te puedes quedar a comer algo saludable. <strong>Todo en un mismo lugar, eso marca la diferencia</strong> con otros gyms de la ciudad."</p>
+          <div class="review-footer">
+            <div class="review-author">
+              <div class="review-avatar" style="background:#16a085;">N</div>
+              <div><div class="review-author-name">Natalia C.</div><div class="review-author-city">Lagos</div></div>
+            </div>
+            <div class="review-stars">★ 5.0</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="reviews-nav">
+      <button class="reviews-nav-btn" id="reviewsPrev">&#8592;</button>
+      <button class="reviews-nav-btn" id="reviewsNext">&#8594;</button>
+    </div>
+    <div class="reviews-dots" id="reviewsDots"></div>
+  </div>
+</section>
+
+<!-- VALORACIÓN FORM -->
+<section id="valoracion" class="form-section">
+  <div class="section-inner">
+    <div class="form-box">
+      <span class="form-box-label">Primera sesión gratuita</span>
+      <h2 class="form-box-title">Agenda tu <em>valoración</em></h2>
+      <p class="form-box-sub">Cuéntanos qué estás buscando y nuestro equipo te contacta para crear un plan personalizado.</p>
+      <form id="valoracionForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-field"><input type="text" placeholder="Nombre *" required></div>
+          <div class="form-field"><input type="text" placeholder="Apellidos *" required></div>
+        </div>
+        <div class="form-field"><input type="email" placeholder="Email *" required></div>
+        <div class="form-field"><input type="tel" placeholder="WhatsApp * ej: 310 234 5678" required></div>
+        <div class="form-field">
+          <select required>
+            <option value="" disabled selected>Servicio de interés</option>
+            <option>Entrenamiento Funcional</option>
+            <option>Rumba Fitness</option>
+            <option>Máquinas y Pesas</option>
+            <option>Acompañamiento Personalizado</option>
+            <option>Plan Familiar</option>
+            <option>Cafetería y Nutrición</option>
+            <option>Quiero conocer el gimnasio</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.383A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          Reservar valoración gratuita →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="contacto" class="ubicacion-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label green">Contacto</span>
+      <h2 class="section-title">Estamos <span style="color:var(--green)">para ti</span></h2>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:.8rem;">Escríbenos o visítanos. Tu primera valoración es el primer paso hacia tu mejor versión.</p>
+    </div>
+    <div class="ubicacion-grid">
+      <div class="ubicacion-info">
+        <div class="info-block">
+          <div class="info-block-label">Ubicación</div>
+          <div class="info-block-value"><strong>ENERGYM FITCLUB</strong><br>Cra 38 #48a-118<br>Bucaramanga, Santander · Colombia</div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">Horario</div>
+          <div class="info-block-value">Lunes a Viernes: <strong>5:00 AM – 10:00 PM</strong><br>Sábado: <strong>7:00 AM – 4:00 PM</strong><br>Domingo: <strong>8:00 AM – 1:00 PM</strong></div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">Teléfonos</div>
+          <div class="info-block-value"><strong>305 360 0019</strong></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <a href="https://wa.me/573053600019?text=Hola%20ENERGYM%2C%20quiero%20información" target="_blank" class="wa-btn-ubicacion">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.383A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            WhatsApp · 305 360 0019
+          </a>
+          <a href="https://www.instagram.com/energymbucaramanga/" target="_blank" class="btn-ig" style="justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @energymbucaramanga
+          </a>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/@7.1156736,-73.1077712,3a,75y,44.62h,98.03t/data=!3m7!1e1!3m5!1sCWSvWnWtb2faJD7sXNMHEg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-8.027854201214467%26panoid%3DCWSvWnWtb2faJD7sXNMHEg%26yaw%3D44.61646656879461!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d490.8!2d-73.10777!3d7.11567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDYnNTYuNCJOIDczwrAwNiczOS45Ilc!5e1!3m2!1ses!2sco!4v1720000000000!5m2!1ses!2sco"
+          width="100%" height="100%" style="border:0;width:100%;height:100%;min-height:380px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-overlay"><span class="map-cta">Ver en Google Maps ↗</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="assets/energymbucaramanga/logo.png" alt="ENERGYM BGA"></div>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#planes">Planes</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://www.instagram.com/energymbucaramanga/" target="_blank">Instagram ↗</a>
+    </div>
+    <div class="footer-copy">© 2025 ENERGYM Bucaramanga · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Galería: ocultar imágenes que no carguen
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.closest('.gallery-item').style.display = 'none';
+    });
+  });
+
+  // Carrusel pac-
+  (function() {
+    const TOTAL = 10;
+    const OFFSETS = { 0: 0, 1: 316, 2: 537, other: 720 };
+    let current = 0;
+    const items = Array.from(document.querySelectorAll('.pac-item'));
+    const dotsContainer = document.getElementById('pacDots');
+    if (!items.length) return;
+
+    items.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'pac-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => { current = i; render(); });
+      dotsContainer.appendChild(d);
+    });
+
+    function render() {
+      items.forEach((item, i) => {
+        const raw = i - current;
+        const dist = ((raw % TOTAL) + TOTAL) % TOTAL;
+        const distC = dist > TOTAL / 2 ? dist - TOTAL : dist;
+        const abs = Math.abs(distC);
+        const sign = distC >= 0 ? 1 : -1;
+        let cls, offset;
+        if (abs === 0)      { cls = 'active'; offset = 0; }
+        else if (abs === 1) { cls = 'side';   offset = sign * OFFSETS[1]; }
+        else if (abs === 2) { cls = 'far';    offset = sign * OFFSETS[2]; }
+        else                { cls = 'off';    offset = sign * OFFSETS.other; }
+        item.className = 'pac-item ' + cls;
+        item.style.transform = `translate(-50%,-50%) translateX(${offset}px)`;
+        const vid = item.querySelector('video');
+        if (cls === 'active') {
+          vid.muted = true; vid.play().catch(() => {}); item.classList.add('playing');
+        } else {
+          vid.pause(); item.classList.remove('playing');
+        }
+      });
+      dotsContainer.querySelectorAll('.pac-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('pacPrev').addEventListener('click', () => { current = (current - 1 + TOTAL) % TOTAL; render(); });
+    document.getElementById('pacNext').addEventListener('click', () => { current = (current + 1) % TOTAL; render(); });
+    document.getElementById('pacViewport').addEventListener('click', function(e) {
+      const item = e.target.closest('.pac-item.active');
+      if (!item) return;
+      const vid = item.querySelector('video');
+      vid.muted = !vid.muted;
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { current = (current - 1 + TOTAL) % TOTAL; render(); }
+      if (e.key === 'ArrowRight') { current = (current + 1) % TOTAL; render(); }
+    });
+    setInterval(() => { current = (current + 1) % TOTAL; render(); }, 5500);
+    render();
+  })();
+
+  // Lead popup
+  (function() {
+    if (sessionStorage.getItem('leadDismissed')) return;
+    setTimeout(() => {
+      document.getElementById('leadPopup').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }, 1800);
+  })();
+  function closeLeadPopup() {
+    document.getElementById('leadPopup').classList.remove('open');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('leadDismissed', '1');
+  }
+  function submitLead(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nombre = f.nombre.value;
+    const correo = f.correo.value;
+    const tel = f.telefono.value;
+    const msg = encodeURIComponent(`¡Hola ENERGYM! Quiero mi clase gratis 💪\n\nNombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${tel}\n\nMe registré desde la página web.`);
+    closeLeadPopup();
+    window.open(`https://wa.me/573053600019?text=${msg}`, '_blank');
+  }
+
+  // Modal tour
+  function openTourModal() {
+    const modal = document.getElementById('tourModal');
+    const vid = document.getElementById('tourVideo');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    vid.play();
+  }
+  function closeTourModal() {
+    const modal = document.getElementById('tourModal');
+    const vid = document.getElementById('tourVideo');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    vid.pause();
+    vid.currentTime = 0;
+  }
+  function closeTourOnBg(e) {
+    if (e.target === document.getElementById('tourModal')) closeTourModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTourModal(); });
+
+  // Planes toggle
+  function togglePlan(btn) {
+    const inc = btn.nextElementSibling;
+    const icon = btn.querySelector('.plan-toggle-icon');
+    inc.classList.toggle('open');
+    icon.style.transform = inc.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
+  function filterPlanes(tipo, btn) {
+    document.querySelectorAll('.plan-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.style.display = (tipo === 'todos' || card.dataset.tipo === tipo) ? '' : 'none';
+    });
+  }
+
+  // Carrusel reseñas
+  (function() {
+    const track = document.getElementById('reviewsTrack');
+    const dotsWrap = document.getElementById('reviewsDots');
+    if (!track) return;
+    const cards = track.querySelectorAll('.review-card');
+    const VISIBLE = window.innerWidth < 600 ? 1 : window.innerWidth < 960 ? 2 : 3;
+    const TOTAL_PAGES = Math.ceil(cards.length / VISIBLE);
+    let page = 0;
+
+    for (let i = 0; i < TOTAL_PAGES; i++) {
+      const d = document.createElement('button');
+      d.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goPage(i);
+      dotsWrap.appendChild(d);
+    }
+
+    function goPage(p) {
+      page = (p + TOTAL_PAGES) % TOTAL_PAGES;
+      const cardW = cards[0].offsetWidth + 19;
+      track.style.transform = `translateX(-${page * VISIBLE * cardW}px)`;
+      dotsWrap.querySelectorAll('.reviews-dot').forEach((d, i) => d.classList.toggle('active', i === page));
+    }
+
+    document.getElementById('reviewsPrev').onclick = () => goPage(page - 1);
+    document.getElementById('reviewsNext').onclick = () => goPage(page + 1);
+    setInterval(() => goPage(page + 1), 6000);
+  })();
+
+  // Form → WhatsApp
+  function submitForm(e) {
+    e.preventDefault();
+    const inputs = e.target.querySelectorAll('input, select');
+    const nombre = inputs[0].value;
+    const apellido = inputs[1].value;
+    const email = inputs[2].value;
+    const tel = inputs[3].value;
+    const servicio = inputs[4].value;
+    const msg = encodeURIComponent(`Hola ENERGYM! Quiero agendar mi valoración:\n\nNombre: ${nombre} ${apellido}\nEmail: ${email}\nWhatsApp: ${tel}\nServicio: ${servicio}`);
+    window.open(`https://wa.me/573053600019?text=${msg}`, '_blank');
+  }
+</script>
+<!-- POPUP LEAD CAPTURE -->
+<div class="lead-popup-bg" id="leadPopup">
+  <div class="lead-popup">
+    <div class="lead-popup-top">
+      <button class="lead-popup-close" onclick="closeLeadPopup()">✕</button>
+      <img src="assets/energymbucaramanga/logo.png" alt="ENERGYM" class="lead-popup-logo">
+      <div class="lead-popup-title">¡Tu primera clase es gratis!</div>
+      <div class="lead-popup-sub">Déjanos tus datos y uno de nuestros entrenadores te contacta para agendar tu valoración sin costo.</div>
+    </div>
+    <div class="lead-popup-body">
+      <form id="leadForm" onsubmit="submitLead(event)">
+        <div class="lead-field">
+          <label>Nombre completo</label>
+          <input type="text" name="nombre" placeholder="¿Cómo te llamas?" required>
+        </div>
+        <div class="lead-field">
+          <label>Correo electrónico</label>
+          <input type="email" name="correo" placeholder="tu@correo.com" required>
+        </div>
+        <div class="lead-field">
+          <label>WhatsApp / Teléfono</label>
+          <input type="tel" name="telefono" placeholder="300 000 0000" required>
+        </div>
+        <button type="submit" class="lead-submit">Quiero mi clase gratis →</button>
+      </form>
+      <button class="lead-skip" onclick="closeLeadPopup()">Ahora no, gracias</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL VISITA VIRTUAL -->
+<div class="tour-modal" id="tourModal" onclick="closeTourOnBg(event)">
+  <div class="tour-modal-inner">
+    <div class="tour-modal-header">
+      <div>
+        <div class="tour-modal-title">Recorrido virtual ENERGYM</div>
+        <div class="tour-modal-subtitle">Acompáñanos en un recorrido por nuestras instalaciones. Conoce las zonas de máquinas, clases, cafetería y todo lo que tenemos para ti antes de visitarnos.</div>
+      </div>
+      <button class="tour-modal-close" onclick="closeTourModal()">✕</button>
+    </div>
+    <div class="tour-video-wrap">
+      <video id="tourVideo" controls playsinline preload="metadata" style="width:100%;display:block;max-height:72vh;">
+        <source src="assets/energymbucaramanga/tour.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "handle": "energymbucaramanga",
+  "profileData": {
+    "profileImgSrc": null,
+    "name": "energymbucaramanga",
+    "bio": "ENERGYM BGA| GYM| PERSONALIZADO| FUNCIONAL| FITNESS| 267 publicaciones 9440 seguidores",
+    "followers": "9440",
+    "following": "",
+    "posts": "267"
+  },
+  "fotos": [
+    "assets/energymbucaramanga/foto_01.jpg",
+    "assets/energymbucaramanga/foto_02.jpg",
+    "assets/energymbucaramanga/foto_03.jpg",
+    "assets/energymbucaramanga/foto_04.jpg",
+    "assets/energymbucaramanga/foto_05.jpg",
+    "assets/energymbucaramanga/foto_06.jpg",
+    "assets/energymbucaramanga/foto_07.jpg",
+    "assets/energymbucaramanga/foto_08.jpg",
+    "assets/energymbucaramanga/foto_09.jpg",
+    "assets/energymbucaramanga/foto_10.jpg",
+    "assets/energymbucaramanga/foto_11.jpg",
+    "assets/energymbucaramanga/foto_12.jpg"
+  ],
+  "videos": [
+    "assets/energymbucaramanga/video_01.mp4",
+    "assets/energymbucaramanga/video_02.mp4",
+    "assets/energymbucaramanga/video_03.mp4",
+    "assets/energymbucaramanga/video_04.mp4"
+  ]
+}
