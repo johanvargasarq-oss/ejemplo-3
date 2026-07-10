@@ -1,0 +1,6 @@
+{
+  "name": "wasabisushihouse",
+  "rewrites": [
+    { "source": "/", "destination": "/wasabisushihouse.html" }
+  ]
+}
