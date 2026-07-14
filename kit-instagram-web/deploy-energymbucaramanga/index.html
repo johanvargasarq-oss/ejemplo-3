@@ -954,110 +954,105 @@
     </div>
     <div class="planes-filters">
       <button class="plan-filter-btn active" onclick="filterPlanes('todos',this)">Todos los planes</button>
-      <button class="plan-filter-btn" onclick="filterPlanes('mensual',this)">Mes a mes</button>
-      <button class="plan-filter-btn" onclick="filterPlanes('trimestral',this)">Trimestral</button>
+      <button class="plan-filter-btn" onclick="filterPlanes('trimestral',this)">3 Meses</button>
+      <button class="plan-filter-btn" onclick="filterPlanes('semestral',this)">5 Meses</button>
+      <button class="plan-filter-btn" onclick="filterPlanes('anual',this)">7 Meses</button>
     </div>
     <div class="planes-grid" id="planesGrid">
 
       <!-- PLAN 1 -->
-      <div class="plan-card" data-tipo="mensual">
+      <div class="plan-card" data-tipo="trimestral">
         <div style="position:relative;">
-          <div class="plan-img-placeholder">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div class="plan-img" style="position:relative;aspect-ratio:4/3;overflow:hidden;">
+            <img src="assets/energymbucaramanga/foto_03.jpg" alt="Plan 3 Meses" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 100%);"></div>
           </div>
-          <div class="plan-label-overlay">PLAN INICIO</div>
+          <div class="plan-label-overlay">3 MESES</div>
         </div>
         <div class="plan-body">
-          <div class="plan-name">Plan Inicio</div>
-          <div class="plan-desc">Empieza tu transformación sin compromisos.</div>
-          <div class="plan-price">$ 89.900 <span>1er Mes</span></div>
-          <div class="plan-price-note">Sin inscripción</div>
-          <div class="plan-detail">Después <strong>$120.000/mes</strong></div>
-          <div class="plan-detail"><strong>Sin fidelidad · Renovación mensual</strong></div>
-          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
-          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Inicio','_blank')">Consultar precio</button>
+          <div class="plan-name">Plan 3 Meses</div>
+          <div class="plan-desc">Motivación y acompañamiento para empezar tu cambio.</div>
+          <div class="plan-price">$300.000</div>
+          <div class="plan-price-note" style="text-decoration:line-through;color:#888;">$450.000</div>
+          <div class="plan-detail"><strong>Fidelidad 3 meses</strong></div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%203%20Meses','_blank')">Lo quiero</button>
         </div>
         <div class="plan-toggle" onclick="togglePlan(this)">
           <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
         </div>
         <div class="plan-includes">
           <div class="plan-includes-inner">
-            <div class="plan-include-item">Acceso a sala de máquinas</div>
-            <div class="plan-include-item">Clases grupales (Rumba y Funcional)</div>
-            <div class="plan-include-item">Vestiarios y duchas</div>
-            <div class="plan-include-item">Orientación inicial con entrenador</div>
+            <div class="plan-include-item">💪 Motivación y acompañamiento</div>
+            <div class="plan-include-item">🚴 Clases grupales semipersonalizadas</div>
+            <div class="plan-include-item">❤️ Valoración inicial + asesoría nutricional</div>
+            <div class="plan-include-item">⚡ La mejor energía para entrenar</div>
           </div>
         </div>
       </div>
 
       <!-- PLAN 2 (destacado) -->
-      <div class="plan-card featured" data-tipo="trimestral">
+      <div class="plan-card featured" data-tipo="semestral">
         <div class="plan-badge">Más recomendado</div>
         <div style="position:relative;margin-top:1px;">
-          <div class="plan-img-placeholder">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div class="plan-img" style="position:relative;aspect-ratio:4/3;overflow:hidden;">
+            <img src="assets/energymbucaramanga/foto_07.jpg" alt="Plan 5 Meses" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 100%);"></div>
           </div>
-          <div class="plan-label-overlay">PLAN PRO</div>
+          <div class="plan-label-overlay">5 MESES</div>
         </div>
         <div class="plan-body">
-          <div class="plan-name">Plan Pro</div>
-          <div class="plan-desc">Entrena con acompañamiento y resultados garantizados.</div>
-          <div class="plan-price">GRATIS <span>1er Mes</span></div>
-          <div class="plan-price-note">$ 15.000 de inscripción · Después $99.000/mes</div>
-          <div class="plan-detail"><strong>Fidelidad 3 meses</strong></div>
-          <div class="plan-detail">Incluye <strong>acompañamiento nutricional</strong></div>
-          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
-          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Pro','_blank')">Consultar precio</button>
+          <div class="plan-name">Plan 5 Meses</div>
+          <div class="plan-desc">Resultados reales con clases semipersonalizadas.</div>
+          <div class="plan-price">$390.000</div>
+          <div class="plan-price-note" style="text-decoration:line-through;color:#888;">$650.000</div>
+          <div class="plan-detail"><strong>Fidelidad 5 meses</strong></div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%205%20Meses','_blank')">Lo quiero</button>
         </div>
         <div class="plan-toggle" onclick="togglePlan(this)">
           <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
         </div>
         <div class="plan-includes">
           <div class="plan-includes-inner">
-            <div class="plan-include-item">Todo lo del Plan Inicio</div>
-            <div class="plan-include-item">Acompañamiento nutricional básico</div>
-            <div class="plan-include-item">Plan de entrenamiento personalizado</div>
-            <div class="plan-include-item">Clases de Rumba, Funcional y más</div>
-            <div class="plan-include-item">Descuento en cafetería ENERGYM</div>
+            <div class="plan-include-item">💪 Motivación y acompañamiento</div>
+            <div class="plan-include-item">🚴 Clases grupales semipersonalizadas</div>
+            <div class="plan-include-item">❤️ Valoración inicial + asesoría nutricional</div>
+            <div class="plan-include-item">⚡ La mejor energía para entrenar</div>
           </div>
         </div>
       </div>
 
       <!-- PLAN 3 -->
-      <div class="plan-card" data-tipo="trimestral">
+      <div class="plan-card" data-tipo="anual">
         <div style="position:relative;">
-          <div class="plan-img-placeholder">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          <div class="plan-img" style="position:relative;aspect-ratio:4/3;overflow:hidden;">
+            <img src="assets/energymbucaramanga/foto_11.jpg" alt="Plan 7 Meses" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.55) 100%);"></div>
           </div>
-          <div class="plan-label-overlay">PLAN ÉLITE</div>
+          <div class="plan-label-overlay">7 MESES</div>
         </div>
         <div class="plan-body">
-          <div class="plan-name">Plan Élite</div>
-          <div class="plan-desc">La experiencia completa para atletas comprometidos.</div>
-          <div class="plan-price">$ 149.900 <span>1er Mes</span></div>
-          <div class="plan-price-note">Sin inscripción · Después $180.000/mes</div>
-          <div class="plan-detail"><strong>Fidelidad 6 meses</strong></div>
-          <div class="plan-detail">Incluye <strong>entrenador personal 2x semana</strong></div>
-          <div class="plan-disclaimer">*Precio de prueba — consulta condiciones reales</div>
-          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%20Elite','_blank')">Consultar precio</button>
+          <div class="plan-name">Plan 7 Meses</div>
+          <div class="plan-desc">La mejor inversión para una transformación completa.</div>
+          <div class="plan-price">$450.000</div>
+          <div class="plan-price-note" style="color:var(--green);font-weight:700;">$64.000 x mes</div>
+          <div class="plan-detail"><strong>Fidelidad 7 meses</strong></div>
+          <button class="plan-cta" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM!%20Quiero%20info%20del%20Plan%207%20Meses','_blank')">Lo quiero</button>
         </div>
         <div class="plan-toggle" onclick="togglePlan(this)">
           <span>¿Qué incluye?</span><span class="plan-toggle-icon">▾</span>
         </div>
         <div class="plan-includes">
           <div class="plan-includes-inner">
-            <div class="plan-include-item">Todo lo del Plan Pro</div>
-            <div class="plan-include-item">Entrenador personal 2 veces por semana</div>
-            <div class="plan-include-item">Evaluación física mensual</div>
-            <div class="plan-include-item">Acceso VIP a todas las clases</div>
-            <div class="plan-include-item">Plan nutricional completo con nutricionista</div>
-            <div class="plan-include-item">Crédito mensual en cafetería</div>
+            <div class="plan-include-item">💪 Motivación y acompañamiento</div>
+            <div class="plan-include-item">🚴 Clases grupales semipersonalizadas</div>
+            <div class="plan-include-item">❤️ Valoración inicial + asesoría nutricional</div>
+            <div class="plan-include-item">⚡ La mejor energía para entrenar</div>
           </div>
         </div>
       </div>
 
     </div>
-    <p class="plan-test-note">⚠ Precios de referencia — confirma tarifas reales directamente con ENERGYM al +57 305 360 0019</p>
+    <p class="plan-test-note">📲 ¿Tienes dudas? Escríbenos al <strong>+57 305 360 0019</strong> y te asesoramos</p>
   </div>
 </section>
 
