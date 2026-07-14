@@ -767,19 +767,30 @@
         <div class="servicio-desc">Programas de fitness integral diseñados para todos los niveles. Desde principiantes hasta atletas avanzados.</div>
       </div>
 
-      <!-- VISITA VIRTUAL -->
-      <div class="servicio-card visita-virtual-card" onclick="openTourModal()" style="cursor:pointer;">
-        <div class="servicio-icon" style="background:rgba(155,53,217,.15);border-color:rgba(155,53,217,.4);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
-            <path d="M3.6 9h16.8M3.6 15h16.8"/>
-          </svg>
-        </div>
-        <div class="servicio-name">Visita Virtual</div>
-        <div class="servicio-desc">Recorre nuestras instalaciones desde donde estés. Conoce el gym antes de visitarnos.</div>
-        <div style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;color:var(--purple);text-transform:uppercase;margin-top:.2rem;">▶ Ver recorrido</div>
-      </div>
+    </div>
+  </div>
+</section>
 
+<!-- RECORRIDO VIRTUAL -->
+<section style="background:var(--black);padding:5rem 6%;">
+  <div class="section-inner">
+    <div class="section-header" style="margin-bottom:2.5rem;">
+      <span class="section-label" style="color:var(--purple);border-color:var(--purple);">Conoce nuestras instalaciones</span>
+      <h2 class="section-title">Recorrido <em>Virtual</em></h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-top:.8rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;">Recorre ENERGYM desde donde estés antes de visitarnos.</p>
+    </div>
+    <div id="tourBlock" onclick="playTourInline()" style="position:relative;max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;cursor:pointer;border:2px solid rgba(155,53,217,.4);box-shadow:0 0 0 1px rgba(61,222,90,.08),0 32px 80px rgba(0,0,0,.6);">
+      <!-- Portada: primera foto disponible como poster -->
+      <img id="tourPoster" src="assets/energymbucaramanga/foto_05.jpg" alt="Recorrido Virtual ENERGYM" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
+      <!-- Video (oculto hasta play) -->
+      <video id="tourVideoInline" src="assets/energymbucaramanga/tour.mp4" playsinline muted style="display:none;width:100%;aspect-ratio:16/9;object-fit:cover;"></video>
+      <!-- Overlay con play -->
+      <div id="tourPlayOverlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 60%,rgba(0,0,0,.1) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .3s;">
+        <div style="width:80px;height:80px;border-radius:50%;background:rgba(155,53,217,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(155,53,217,.2);transition:transform .2s;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21"/></svg>
+        </div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;">Ver recorrido</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1406,6 +1417,23 @@
     const msg = encodeURIComponent(`¡Hola ENERGYM! Quiero mi clase gratis 💪\n\nNombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${tel}\n\nMe registré desde la página web.`);
     closeLeadPopup();
     window.open(`https://wa.me/573053600019?text=${msg}`, '_blank');
+  }
+
+  // Video tour inline
+  function playTourInline() {
+    const poster = document.getElementById('tourPoster');
+    const vid = document.getElementById('tourVideoInline');
+    const overlay = document.getElementById('tourPlayOverlay');
+    if (vid.style.display === 'none') {
+      poster.style.display = 'none';
+      vid.style.display = 'block';
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      vid.muted = false;
+      vid.play();
+    } else {
+      vid.paused ? vid.play() : vid.pause();
+    }
   }
 
   // Modal tour
