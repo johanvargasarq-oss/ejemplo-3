@@ -629,6 +629,168 @@
       .hero-sep { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
     }
+
+    /* ===== PORTAL CLIENTES ===== */
+    .nav-login-btn {
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:rgba(255,255,255,.18);color:#fff;
+      font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+      padding:.5rem .9rem;border-radius:6px;transition:all .2s;
+      border:1px solid rgba(255,255,255,.35);cursor:pointer;
+    }
+    .nav-login-btn:hover{background:rgba(255,255,255,.3);}
+    .nav-user-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.3);
+      color:#fff;padding:.3rem .3rem .3rem .7rem;border-radius:999px;font-size:.6rem;
+      font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.2);}
+    .nav-avatar{width:28px;height:28px;border-radius:50%;background:var(--green);color:#000;
+      display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;}
+
+    /* modal login */
+    .gym-modal-bg{position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.88);
+      backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;
+      padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+    .gym-modal-bg.open{opacity:1;pointer-events:all;}
+    .gym-login-box{background:#15151e;border:1px solid #2c2c3c;border-radius:20px;
+      padding:2.2rem 1.8rem;width:100%;max-width:370px;display:flex;flex-direction:column;gap:1.2rem;}
+    .gym-login-logo{text-align:center;}
+    .gym-login-logo img{height:38px;margin:0 auto;}
+    .gym-login-title{font-family:'Rajdhani',sans-serif;font-size:1.25rem;font-weight:800;
+      color:#fff;text-align:center;text-transform:uppercase;letter-spacing:2px;}
+    .gym-login-sub{font-size:.72rem;color:var(--muted);text-align:center;margin-top:-.7rem;}
+    .gym-field{display:flex;flex-direction:column;gap:.4rem;}
+    .gym-field label{font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+    .gym-field input,.gym-field select{background:#0e0e16;border:1px solid #2c2c3c;border-radius:10px;
+      color:#fff;font-size:.88rem;padding:.7rem .9rem;outline:none;transition:border-color .2s;width:100%;font-family:inherit;}
+    .gym-field input:focus,.gym-field select:focus{border-color:var(--purple);}
+    .gym-field textarea{background:#0e0e16;border:1px solid #2c2c3c;border-radius:10px;
+      color:#fff;font-size:.82rem;padding:.7rem .9rem;outline:none;resize:vertical;
+      min-height:65px;width:100%;font-family:inherit;transition:border-color .2s;}
+    .gym-field textarea:focus{border-color:var(--purple);}
+    .gym-btn-purple{background:var(--purple);color:#fff;font-size:.72rem;font-weight:700;
+      letter-spacing:1.5px;text-transform:uppercase;padding:.8rem;border-radius:10px;
+      transition:background .2s;width:100%;}
+    .gym-btn-purple:hover{background:var(--purple2);}
+    .gym-login-err{font-size:.72rem;color:#ff5a5a;text-align:center;min-height:1rem;}
+
+    /* dashboard overlay */
+    .gym-dashboard{position:fixed;inset:0;z-index:4000;background:#0d0d14;overflow-y:auto;
+      transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+    .gym-dashboard.open{transform:translateX(0);}
+    .gym-db-hdr{background:#111119;border-bottom:1px solid #1e1e2a;padding:.9rem 1.1rem;
+      display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+    .gym-db-av{width:40px;height:40px;border-radius:50%;background:var(--purple);color:#fff;
+      display:flex;align-items:center;justify-content:center;font-family:'Rajdhani';
+      font-size:.95rem;font-weight:800;flex-shrink:0;}
+    .gym-db-nm{font-size:.82rem;font-weight:600;color:#fff;}
+    .gym-db-tag{font-size:.58rem;color:var(--green);font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+    .gym-icon-btn{width:34px;height:34px;border-radius:9px;background:#1a1a24;
+      display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+    .gym-icon-btn:hover{background:var(--purple);}
+    .gym-db-body{padding:1.2rem;display:flex;flex-direction:column;gap:1.3rem;
+      max-width:680px;margin:0 auto;}
+    .gym-sec-lbl{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      color:var(--muted);margin-bottom:.7rem;}
+
+    /* stats */
+    .gym-stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;}
+    .gym-stat-c{background:#181820;border:1px solid #1e1e2a;border-radius:13px;
+      padding:.9rem .6rem;text-align:center;}
+    .gym-stat-v{font-family:'Rajdhani';font-size:1.45rem;font-weight:800;color:#fff;}
+    .gym-stat-u{font-size:.55rem;color:var(--muted);}
+    .gym-stat-l{font-size:.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:.15rem;}
+
+    /* acc */
+    .gym-acc{background:#181820;border:1px solid #1e1e2a;border-radius:13px;overflow:hidden;}
+    .gym-acc-row{display:flex;align-items:center;justify-content:space-between;
+      padding:.8rem 1rem;border-bottom:1px solid #1a1a24;}
+    .gym-acc-row:last-child{border-bottom:none;}
+    .gym-acc-k{font-size:.8rem;color:var(--text);}
+    .gym-acc-v{font-size:.88rem;font-weight:700;color:#fff;}
+    .gym-acc-u{font-size:.65rem;color:var(--muted);margin-left:.15rem;}
+
+    /* chart */
+    .gym-chart{background:#181820;border:1px solid #1e1e2a;border-radius:13px;padding:1.1rem;}
+    .gym-chart-ttl{font-size:.78rem;font-weight:600;color:#fff;margin-bottom:.8rem;}
+    .gym-bars{display:flex;align-items:flex-end;gap:.5rem;height:90px;}
+    .gym-bw{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1;}
+    .gym-bar{width:100%;border-radius:4px 4px 0 0;
+      background:linear-gradient(to top,var(--purple),rgba(155,53,217,.35));min-height:6px;}
+    .gym-bd{font-size:.55rem;color:var(--muted);text-transform:uppercase;}
+
+    /* plan */
+    .gym-plan-c{background:#181820;border:1.5px solid var(--green);border-radius:13px;padding:1.1rem;}
+    .gym-plan-nm{font-family:'Rajdhani';font-size:1.05rem;font-weight:800;color:#fff;text-transform:uppercase;}
+    .gym-plan-bg{display:inline-flex;background:var(--green);color:#000;font-size:.55rem;
+      font-weight:700;letter-spacing:1px;padding:.15rem .55rem;border-radius:999px;text-transform:uppercase;margin-left:.5rem;}
+    .gym-plan-dates{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.7rem;}
+    .gym-pd-lbl{font-size:.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+    .gym-pd-val{font-size:.8rem;font-weight:600;color:#fff;}
+
+    /* calendario */
+    .gym-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:.35rem;}
+    .gym-cal-d{background:#181820;border:1px solid #1e1e2a;border-radius:9px;
+      padding:.5rem .2rem;text-align:center;display:flex;flex-direction:column;gap:.25rem;cursor:pointer;transition:border-color .2s;}
+    .gym-cal-d:hover{border-color:var(--purple);}
+    .gym-cal-d.has-workout{border-color:rgba(155,53,217,.5);background:rgba(155,53,217,.08);}
+    .gym-cal-d.rest-day{opacity:.45;}
+    .gym-cal-dn{font-size:.52rem;text-transform:uppercase;color:var(--muted);letter-spacing:.5px;}
+    .gym-cal-dd{font-size:.75rem;font-weight:700;color:#fff;}
+    .gym-cal-dot{width:5px;height:5px;border-radius:50%;background:var(--purple);margin:0 auto;}
+    .gym-cal-lbl{font-size:.45rem;color:var(--green);font-weight:600;line-height:1.2;padding:0 .1rem;}
+    .gym-workout-detail{background:#181820;border:1px solid rgba(155,53,217,.4);
+      border-radius:11px;padding:.9rem 1rem;margin-top:.6rem;display:none;}
+    .gym-wd-ttl{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
+    .gym-wd-row{display:flex;gap:1rem;flex-wrap:wrap;}
+    .gym-wd-chip{background:rgba(155,53,217,.15);color:var(--purple);font-size:.62rem;
+      font-weight:600;padding:.2rem .6rem;border-radius:6px;}
+
+    /* comidas */
+    .gym-meal-i{background:#181820;border:1px solid #1e1e2a;border-radius:11px;
+      padding:.8rem .9rem;display:flex;align-items:flex-start;gap:.7rem;}
+    .gym-meal-ic{width:32px;height:32px;border-radius:9px;flex-shrink:0;
+      background:rgba(155,53,217,.15);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+    .gym-meal-tp{font-size:.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+    .gym-meal-ds{font-size:.8rem;color:#fff;font-weight:500;margin-top:.1rem;}
+    .gym-meal-kc{font-size:.62rem;color:var(--green);margin-top:.15rem;}
+
+    /* fotos */
+    .gym-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;}
+    .gym-photo-i{aspect-ratio:1;border-radius:9px;overflow:hidden;
+      background:#181820;border:1px solid #1e1e2a;position:relative;}
+    .gym-photo-i img{width:100%;height:100%;object-fit:cover;display:block;}
+    .gym-photo-dt{position:absolute;bottom:.25rem;left:.25rem;right:.25rem;
+      font-size:.45rem;color:#fff;background:rgba(0,0,0,.75);border-radius:4px;
+      padding:.1rem .3rem;text-align:center;}
+    .gym-upload-z{aspect-ratio:1;border-radius:9px;border:1.5px dashed #2c2c3c;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:.35rem;cursor:pointer;background:#111118;transition:border-color .2s;}
+    .gym-upload-z:hover{border-color:var(--purple);}
+    .gym-upload-z span{font-size:.58rem;color:var(--muted);}
+
+    /* admin */
+    .gym-tabs{display:flex;gap:.4rem;border-bottom:1px solid #1e1e2a;padding-bottom:.5rem;margin-bottom:1.1rem;}
+    .gym-tab{font-size:.65rem;font-weight:600;color:var(--muted);padding:.35rem .85rem;border-radius:7px;cursor:pointer;transition:all .2s;}
+    .gym-tab.active{background:var(--purple);color:#fff;}
+    .gym-cl-c{background:#181820;border:1px solid #1e1e2a;border-radius:11px;
+      padding:.9rem;display:flex;align-items:center;gap:.7rem;cursor:pointer;transition:border-color .2s;}
+    .gym-cl-c:hover{border-color:var(--purple);}
+    .gym-cl-av{width:38px;height:38px;border-radius:50%;background:var(--purple);color:#fff;
+      display:flex;align-items:center;justify-content:center;font-family:'Rajdhani';
+      font-size:.88rem;font-weight:800;flex-shrink:0;}
+    .gym-cl-nm{font-size:.85rem;font-weight:600;color:#fff;}
+    .gym-cl-pl{font-size:.65rem;color:var(--muted);}
+    .gym-form-row2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+    .gym-save{background:var(--purple);color:#fff;font-size:.7rem;font-weight:700;
+      letter-spacing:1.5px;text-transform:uppercase;padding:.75rem;border-radius:9px;transition:background .2s;}
+    .gym-save:hover{background:var(--purple2);}
+    .gym-back{display:flex;align-items:center;gap:.4rem;font-size:.68rem;
+      color:var(--muted);cursor:pointer;margin-bottom:1rem;}
+    .gym-back:hover{color:#fff;}
+    .gym-msg{font-size:.72rem;text-align:center;color:var(--green);min-height:1rem;}
+    @media(max-width:480px){
+      .gym-stats3{grid-template-columns:repeat(3,1fr);}
+      .gym-plan-dates{grid-template-columns:repeat(3,1fr);}
+    }
   </style>
 </head>
 <body>
@@ -646,11 +808,244 @@
     <a href="#horarios">Horarios</a>
     <a href="#contacto">Contacto</a>
   </div>
+  <button class="nav-login-btn" id="navLoginBtn" onclick="openLoginModal()">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    Mi cuenta
+  </button>
+  <div class="nav-user-pill" id="navUserPill" style="display:none;" onclick="openDashboard()">
+    <span id="navUserNm" style="font-size:.6rem;">—</span>
+    <div class="nav-avatar" id="navUserAv">--</div>
+  </div>
   <a href="https://wa.me/573053600019?text=Hola%20ENERGYM%2C%20quiero%20información%20sobre%20el%20gimnasio" target="_blank" class="nav-cta">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.383A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
     WhatsApp
   </a>
 </nav>
+
+<!-- ======= PORTAL CLIENTES ======= -->
+
+<!-- LOGIN MODAL -->
+<div class="gym-modal-bg" id="gymLoginModal">
+  <div class="gym-login-box">
+    <div class="gym-login-logo"><img src="assets/energymbucaramanga/logo.png" alt="ENERGYM"></div>
+    <div>
+      <div class="gym-login-title">Mi cuenta</div>
+      <div class="gym-login-sub">Accede a tu perfil y progreso</div>
+    </div>
+    <div class="gym-field"><label>Correo electrónico</label>
+      <input type="email" id="gymEmail" placeholder="tu@correo.com" autocomplete="email" onkeydown="if(event.key==='Enter')handleLogin()">
+    </div>
+    <div class="gym-field"><label>Contraseña</label>
+      <input type="password" id="gymPass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')handleLogin()">
+    </div>
+    <div class="gym-login-err" id="gymLoginErr"></div>
+    <button class="gym-btn-purple" onclick="handleLogin()">Entrar</button>
+    <div style="text-align:center;font-size:.65rem;color:var(--muted);">
+      ¿No tienes acceso? <span style="color:var(--purple);cursor:pointer;" onclick="window.open('https://wa.me/573053600019?text=Hola%20ENERGYM%2C%20quiero%20mi%20acceso%20al%20portal','_blank')">Contacta al entrenador</span>
+    </div>
+    <button onclick="closeLoginModal()" style="background:none;color:var(--muted);font-size:.65rem;text-align:center;">✕ Cerrar</button>
+  </div>
+</div>
+
+<!-- DASHBOARD CLIENTE -->
+<div class="gym-dashboard" id="gymClientDash">
+  <div class="gym-db-hdr">
+    <div style="display:flex;align-items:center;gap:.8rem;">
+      <div class="gym-db-av" id="dbAv">JF</div>
+      <div>
+        <div class="gym-db-nm" id="dbNm">—</div>
+        <div class="gym-db-tag" id="dbTag">Plan activo</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.4rem;">
+      <div class="gym-icon-btn" title="Cerrar" onclick="closeDashboard()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+      <div class="gym-icon-btn" title="Cerrar sesión" onclick="handleLogout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="gym-db-body">
+    <!-- Progreso -->
+    <div>
+      <div class="gym-sec-lbl">Tu progreso</div>
+      <div class="gym-stats3">
+        <div class="gym-stat-c"><div class="gym-stat-v" id="stPeso">—</div><div class="gym-stat-u">Kg</div><div class="gym-stat-l">Peso</div></div>
+        <div class="gym-stat-c"><div class="gym-stat-v" id="stGrasa">—</div><div class="gym-stat-u">%</div><div class="gym-stat-l">Grasa</div></div>
+        <div class="gym-stat-c"><div class="gym-stat-v" id="stMusculo">—</div><div class="gym-stat-u">%</div><div class="gym-stat-l">Músculo</div></div>
+      </div>
+    </div>
+    <!-- ACC -->
+    <div>
+      <div class="gym-sec-lbl">Análisis de Composición Corporal</div>
+      <div class="gym-acc" id="dbACC"></div>
+    </div>
+    <!-- Chart -->
+    <div class="gym-chart">
+      <div class="gym-chart-ttl">Historial de peso</div>
+      <div class="gym-bars" id="dbBars"></div>
+    </div>
+    <!-- Plan -->
+    <div>
+      <div class="gym-sec-lbl">Tu plan</div>
+      <div class="gym-plan-c">
+        <div><span class="gym-plan-nm" id="dbPlanNm">—</span><span class="gym-plan-bg">Activo</span></div>
+        <div class="gym-plan-dates">
+          <div><div class="gym-pd-lbl">Inicio</div><div class="gym-pd-val" id="dbPlanI">—</div></div>
+          <div><div class="gym-pd-lbl">Fin</div><div class="gym-pd-val" id="dbPlanF">—</div></div>
+          <div><div class="gym-pd-lbl">Valor mes</div><div class="gym-pd-val" id="dbPlanV">—</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Calendario -->
+    <div>
+      <div class="gym-sec-lbl">Calendario semanal</div>
+      <div class="gym-cal" id="dbCal"></div>
+      <div class="gym-workout-detail" id="dbWD">
+        <div class="gym-wd-ttl" id="dbWDttl"></div>
+        <div class="gym-wd-row" id="dbWDrow"></div>
+        <div style="font-size:.75rem;color:var(--text);margin-top:.5rem;" id="dbWDnota"></div>
+      </div>
+    </div>
+    <!-- Comidas -->
+    <div>
+      <div class="gym-sec-lbl">Plan de comidas — hoy</div>
+      <div style="display:flex;flex-direction:column;gap:.6rem;" id="dbMeals"></div>
+    </div>
+    <!-- Fotos -->
+    <div>
+      <div class="gym-sec-lbl">Mis fotos de progreso</div>
+      <div class="gym-photos" id="dbPhotos">
+        <label class="gym-upload-z" for="gymPhotoInput">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Subir foto</span>
+        </label>
+        <input type="file" id="gymPhotoInput" accept="image/*" style="display:none;" onchange="uploadPhoto(this)">
+      </div>
+    </div>
+    <div style="height:2rem;"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD ADMIN -->
+<div class="gym-dashboard" id="gymAdminDash">
+  <div class="gym-db-hdr">
+    <div style="display:flex;align-items:center;gap:.8rem;">
+      <div class="gym-db-av" style="background:var(--green);color:#000;">AD</div>
+      <div>
+        <div class="gym-db-nm">Panel Entrenador</div>
+        <div class="gym-db-tag">ENERGYM Admin</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.4rem;">
+      <div class="gym-icon-btn" onclick="closeDashboard()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+      <div class="gym-icon-btn" onclick="handleLogout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="gym-db-body">
+    <div class="gym-tabs">
+      <div class="gym-tab active" onclick="adminTab('clientes',this)">Clientes</div>
+      <div class="gym-tab" onclick="adminTab('agregar',this)">+ Nuevo</div>
+    </div>
+    <!-- Lista clientes -->
+    <div id="admTabClientes" style="display:flex;flex-direction:column;gap:.6rem;"></div>
+    <!-- Agregar cliente -->
+    <div id="admTabAgregar" style="display:none;">
+      <div style="display:flex;flex-direction:column;gap:.8rem;">
+        <div class="gym-form-row2">
+          <div class="gym-field"><label>Nombre</label><input type="text" id="nNombre" placeholder="Juan García"></div>
+          <div class="gym-field"><label>Email (login)</label><input type="email" id="nEmail" placeholder="juan@gmail.com"></div>
+        </div>
+        <div class="gym-form-row2">
+          <div class="gym-field"><label>Contraseña</label><input type="text" id="nPass" placeholder="energym123"></div>
+          <div class="gym-field"><label>Plan</label><input type="text" id="nPlan" placeholder="Plan 3 Meses"></div>
+        </div>
+        <div class="gym-form-row2">
+          <div class="gym-field"><label>Inicio plan</label><input type="date" id="nInicio"></div>
+          <div class="gym-field"><label>Fin plan</label><input type="date" id="nFin"></div>
+        </div>
+        <div class="gym-field"><label>Valor x mes</label><input type="text" id="nValor" placeholder="$300.000"></div>
+        <button class="gym-save" onclick="addCliente()">Crear cliente</button>
+        <div class="gym-msg" id="msgAdd"></div>
+      </div>
+    </div>
+    <!-- Editor cliente -->
+    <div id="admEditor" style="display:none;">
+      <div class="gym-back" onclick="backToList()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver
+      </div>
+      <div id="admEdHdr" class="gym-cl-c" style="cursor:default;margin-bottom:1.1rem;pointer-events:none;"></div>
+      <div class="gym-tabs" style="margin-bottom:.9rem;">
+        <div class="gym-tab active" onclick="edTab('medidas',this)">Medidas</div>
+        <div class="gym-tab" onclick="edTab('cal',this)">Calendario</div>
+        <div class="gym-tab" onclick="edTab('comidas',this)">Comidas</div>
+      </div>
+      <!-- Sub: medidas -->
+      <div id="edMedidas">
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <div class="gym-form-row2">
+            <div class="gym-field"><label>Peso (kg)</label><input type="number" id="ePeso" step="0.1" placeholder="78.8"></div>
+            <div class="gym-field"><label>Estatura (cm)</label><input type="number" id="eEstatura" step="0.1" placeholder="174.0"></div>
+          </div>
+          <div class="gym-form-row2">
+            <div class="gym-field"><label>Grasa (%)</label><input type="number" id="eGrasa" step="0.1" placeholder="20.2"></div>
+            <div class="gym-field"><label>Músculo (%)</label><input type="number" id="eMusculo" step="0.1" placeholder="40.2"></div>
+          </div>
+          <div class="gym-form-row2">
+            <div class="gym-field"><label>IMC</label><input type="number" id="eIMC" step="0.01" placeholder="26.03"></div>
+            <div class="gym-field"><label>IMM</label><input type="number" id="eIMM" step="0.01" placeholder="10.46"></div>
+          </div>
+          <div class="gym-field"><label>Perímetro Abdominal (cm)</label><input type="number" id="ePerim" step="0.1" placeholder="0.0"></div>
+          <button class="gym-save" onclick="saveMedidas()">Guardar medidas</button>
+          <div class="gym-msg" id="msgMed"></div>
+        </div>
+      </div>
+      <!-- Sub: calendario -->
+      <div id="edCal" style="display:none;">
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <div class="gym-cal" id="admCalGrid" style="margin-bottom:.6rem;"></div>
+          <div id="admCalForm" style="display:none;flex-direction:column;gap:.7rem;">
+            <div class="gym-field"><label id="admCalDayLbl">Día</label></div>
+            <div class="gym-field"><label>Rutina / Ejercicio</label><input type="text" id="calEj" placeholder="Funcional · Tren superior"></div>
+            <div class="gym-form-row2">
+              <div class="gym-field"><label>Series</label><input type="text" id="calSer" placeholder="4"></div>
+              <div class="gym-field"><label>Reps</label><input type="text" id="calRep" placeholder="12-15"></div>
+            </div>
+            <div class="gym-field"><label>Notas</label><textarea id="calNot" placeholder="Calentar 10 min, descanso 60s entre series..."></textarea></div>
+            <button class="gym-save" onclick="saveCalDay()">Guardar día</button>
+            <div class="gym-msg" id="msgCal"></div>
+          </div>
+          <div id="admCalHint" style="font-size:.7rem;color:var(--muted);text-align:center;padding:.4rem;">Toca un día para editarlo</div>
+        </div>
+      </div>
+      <!-- Sub: comidas -->
+      <div id="edComidas" style="display:none;">
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <div class="gym-field"><label>Tipo de comida</label>
+            <select id="comTipo">
+              <option>🌅 Desayuno</option>
+              <option>☕ Media mañana</option>
+              <option>🍽 Almuerzo</option>
+              <option>🥤 Merienda</option>
+              <option>🌙 Cena</option>
+            </select>
+          </div>
+          <div class="gym-field"><label>Descripción</label><textarea id="comDesc" placeholder="Avena con fruta + proteína en polvo..."></textarea></div>
+          <div class="gym-field"><label>Calorías aprox.</label><input type="number" id="comKcal" placeholder="350"></div>
+          <button class="gym-save" onclick="addComida()">Agregar</button>
+          <div class="gym-msg" id="msgCom"></div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;" id="admComList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="inicio" class="hero">
@@ -1513,6 +1908,454 @@
     const msg = encodeURIComponent(`Hola ENERGYM! Quiero agendar mi valoración:\n\nNombre: ${nombre} ${apellido}\nEmail: ${email}\nWhatsApp: ${tel}\nServicio: ${servicio}`);
     window.open(`https://wa.me/573053600019?text=${msg}`, '_blank');
   }
+
+  /* ========== PORTAL CLIENTES ========== */
+  // Credenciales admin fijas
+  const ADMIN_EMAIL = 'admin@energym.co';
+  const ADMIN_PASS  = 'energym2025';
+
+  // Utilidades localStorage
+  const DB = {
+    get: k => { try { return JSON.parse(localStorage.getItem(k)); } catch(e) { return null; } },
+    set: (k,v) => localStorage.setItem(k, JSON.stringify(v)),
+    users: () => DB.get('gym_users') || [],
+    saveUsers: u => DB.set('gym_users', u),
+    user: email => (DB.users().find(u => u.email === email) || null),
+    medidas: email => DB.get('gym_med_' + email) || null,
+    saveMedidas: (email, d) => {
+      DB.set('gym_med_' + email, d);
+      // Historial
+      const h = DB.get('gym_medH_' + email) || [];
+      h.push({ ...d, fecha: new Date().toLocaleDateString('es-CO', {day:'2-digit',month:'short'}) });
+      if (h.length > 8) h.shift();
+      DB.set('gym_medH_' + email, h);
+    },
+    medHist: email => DB.get('gym_medH_' + email) || [],
+    cal: email => DB.get('gym_cal_' + email) || {},
+    saveCal: (email, d) => DB.set('gym_cal_' + email, d),
+    meals: email => DB.get('gym_meals_' + email) || [],
+    saveMeals: (email, d) => DB.set('gym_meals_' + email, d),
+    photos: email => DB.get('gym_photos_' + email) || [],
+    savePhotos: (email, d) => DB.set('gym_photos_' + email, d),
+    session: () => DB.get('gym_session'),
+    saveSession: s => DB.set('gym_session', s),
+    clearSession: () => localStorage.removeItem('gym_session'),
+  };
+
+  let currentEmail = null;
+  let admEdEmail = null;
+  let admCalSelDay = null;
+
+  // Modal login
+  function openLoginModal() {
+    document.getElementById('gymLoginModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('gymEmail').focus(), 200);
+  }
+  function closeLoginModal() {
+    document.getElementById('gymLoginModal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('gymLoginErr').textContent = '';
+  }
+
+  function handleLogin() {
+    const email = document.getElementById('gymEmail').value.trim().toLowerCase();
+    const pass  = document.getElementById('gymPass').value;
+    const errEl = document.getElementById('gymLoginErr');
+    errEl.textContent = '';
+
+    // Admin
+    if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
+      DB.saveSession({ email, role: 'admin', nombre: 'Entrenador' });
+      currentEmail = email;
+      closeLoginModal();
+      updateNavUser('Entrenador', 'AD');
+      openAdminDash();
+      return;
+    }
+    // Cliente
+    const u = DB.user(email);
+    if (!u || u.password !== pass) {
+      errEl.textContent = 'Correo o contraseña incorrectos';
+      return;
+    }
+    DB.saveSession({ email, role: 'cliente', nombre: u.nombre });
+    currentEmail = email;
+    closeLoginModal();
+    const initials = u.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    updateNavUser(u.nombre.split(' ')[0], initials);
+    openClientDash(email);
+  }
+
+  function handleLogout() {
+    DB.clearSession();
+    currentEmail = null;
+    closeDashboard();
+    document.getElementById('navLoginBtn').style.display = '';
+    document.getElementById('navUserPill').style.display = 'none';
+  }
+
+  function updateNavUser(name, initials) {
+    document.getElementById('navLoginBtn').style.display = 'none';
+    document.getElementById('navUserPill').style.display = '';
+    document.getElementById('navUserNm').textContent = name;
+    document.getElementById('navUserAv').textContent = initials;
+  }
+
+  function closeDashboard() {
+    document.getElementById('gymClientDash').classList.remove('open');
+    document.getElementById('gymAdminDash').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function openDashboard() {
+    const s = DB.session();
+    if (!s) return;
+    if (s.role === 'admin') openAdminDash();
+    else openClientDash(s.email);
+  }
+
+  /* ---- CLIENTE DASHBOARD ---- */
+  function openClientDash(email) {
+    const u = DB.user(email);
+    if (!u) return;
+    const dash = document.getElementById('gymClientDash');
+    const initials = u.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    document.getElementById('dbAv').textContent = initials;
+    document.getElementById('dbNm').textContent = u.nombre;
+    document.getElementById('dbTag').textContent = u.plan || 'Sin plan activo';
+    renderClientData(email, u);
+    dash.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderClientData(email, u) {
+    const med = DB.medidas(email);
+    // Stats
+    document.getElementById('stPeso').textContent   = med ? med.peso    : '—';
+    document.getElementById('stGrasa').textContent  = med ? med.grasa   : '—';
+    document.getElementById('stMusculo').textContent = med ? med.musculo : '—';
+    // ACC
+    const accEl = document.getElementById('dbACC');
+    const accFields = [
+      ['Peso',               med?.peso,     'Kg'],
+      ['Estatura',           med?.estatura, 'cm'],
+      ['Perímetro Abdominal',med?.perimetro,'cm'],
+      ['Grasa',              med?.grasa,    '%'],
+      ['Músculo',            med?.musculo,  '%'],
+      ['IMC',                med?.imc,      '%'],
+      ['IMM',                med?.imm,      '%'],
+    ];
+    accEl.innerHTML = accFields.map(([k,v,u]) =>
+      `<div class="gym-acc-row"><span class="gym-acc-k">${k}</span><span><span class="gym-acc-v">${v ?? '—'}</span><span class="gym-acc-u">${v != null ? u : ''}</span></span></div>`
+    ).join('');
+    // Chart
+    const hist = DB.medHist(email);
+    const barsEl = document.getElementById('dbBars');
+    if (hist.length > 0) {
+      const vals = hist.map(h => parseFloat(h.peso) || 0);
+      const maxV = Math.max(...vals) || 1;
+      barsEl.innerHTML = hist.map((h,i) =>
+        `<div class="gym-bw"><div class="gym-bar" style="height:${Math.round((vals[i]/maxV)*88)}px;" title="${h.peso} kg"></div><div class="gym-bd">${h.fecha}</div></div>`
+      ).join('');
+    } else {
+      barsEl.innerHTML = '<div style="font-size:.72rem;color:var(--muted);margin:auto;">Sin registros aún</div>';
+    }
+    // Plan
+    document.getElementById('dbPlanNm').textContent = u.plan    || '—';
+    document.getElementById('dbPlanI').textContent  = u.planI   || '—';
+    document.getElementById('dbPlanF').textContent  = u.planF   || '—';
+    document.getElementById('dbPlanV').textContent  = u.planV   || '—';
+    // Calendario
+    renderClientCal(email);
+    // Comidas
+    renderClientMeals(email);
+    // Fotos
+    renderClientPhotos(email);
+  }
+
+  const DIAS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  function renderClientCal(email) {
+    const cal = DB.cal(email);
+    const hoy = new Date();
+    const calEl = document.getElementById('dbCal');
+    const wdEl  = document.getElementById('dbWD');
+    let html = '';
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(hoy); d.setDate(hoy.getDate() - hoy.getDay() + i);
+      const key = d.toISOString().split('T')[0];
+      const entry = cal[key];
+      const isHoy = key === hoy.toISOString().split('T')[0];
+      const classes = ['gym-cal-d'];
+      if (entry) classes.push('has-workout');
+      if (isHoy) classes.push('active');
+      html += `<div class="${classes.join(' ')}" onclick="showWorkout('${key}','${email}')">
+        <div class="gym-cal-dn">${DIAS[d.getDay()]}</div>
+        <div class="gym-cal-dd">${d.getDate()}</div>
+        ${entry ? '<div class="gym-cal-dot"></div>' : ''}
+        ${entry ? `<div class="gym-cal-lbl">${entry.ejercicio ? entry.ejercicio.slice(0,12) : ''}</div>` : ''}
+      </div>`;
+    }
+    calEl.innerHTML = html;
+    wdEl.style.display = 'none';
+  }
+
+  function showWorkout(key, email) {
+    const cal = DB.cal(email);
+    const entry = cal[key];
+    const wdEl = document.getElementById('dbWD');
+    const d = new Date(key);
+    if (!entry) { wdEl.style.display = 'none'; return; }
+    document.getElementById('dbWDttl').textContent = `${DIAS[d.getDay()]} ${d.getDate()} — ${entry.ejercicio || ''}`;
+    const chips = [];
+    if (entry.series) chips.push(`Series: ${entry.series}`);
+    if (entry.reps)   chips.push(`Reps: ${entry.reps}`);
+    document.getElementById('dbWDrow').innerHTML = chips.map(c => `<span class="gym-wd-chip">${c}</span>`).join('');
+    document.getElementById('dbWDnota').textContent = entry.notas || '';
+    wdEl.style.display = 'block';
+  }
+
+  function renderClientMeals(email) {
+    const meals = DB.meals(email);
+    const mealIcons = { 'Desayuno':'🌅','Media mañana':'☕','Almuerzo':'🍽','Merienda':'🥤','Cena':'🌙' };
+    const el = document.getElementById('dbMeals');
+    if (!meals.length) {
+      el.innerHTML = '<div style="font-size:.75rem;color:var(--muted);text-align:center;padding:.8rem;">El entrenador aún no ha cargado tu plan de comidas</div>';
+      return;
+    }
+    el.innerHTML = meals.map(m => {
+      const tipo = m.tipo.replace(/[🌅☕🍽🥤🌙]\s?/,'');
+      const icon = mealIcons[tipo] || '🍴';
+      return `<div class="gym-meal-i">
+        <div class="gym-meal-ic">${icon}</div>
+        <div><div class="gym-meal-tp">${tipo}</div><div class="gym-meal-ds">${m.desc}</div>${m.kcal ? `<div class="gym-meal-kc">~${m.kcal} kcal</div>` : ''}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderClientPhotos(email) {
+    const photos = DB.photos(email);
+    const el = document.getElementById('dbPhotos');
+    const upload = `<label class="gym-upload-z" for="gymPhotoInput"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>Subir foto</span></label><input type="file" id="gymPhotoInput" accept="image/*" style="display:none;" onchange="uploadPhoto(this)">`;
+    el.innerHTML = upload + photos.map(p =>
+      `<div class="gym-photo-i"><img src="${p.src}" alt="progreso"><div class="gym-photo-dt">${p.fecha}</div></div>`
+    ).join('');
+  }
+
+  function uploadPhoto(input) {
+    if (!input.files[0] || !currentEmail) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const photos = DB.photos(currentEmail);
+      photos.unshift({ src: e.target.result, fecha: new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'short',year:'numeric'}) });
+      DB.savePhotos(currentEmail, photos);
+      renderClientPhotos(currentEmail);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+  /* ---- ADMIN DASHBOARD ---- */
+  function openAdminDash() {
+    document.getElementById('gymAdminDash').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderClientList();
+  }
+
+  function renderClientList() {
+    const users = DB.users();
+    const el = document.getElementById('admTabClientes');
+    if (!users.length) {
+      el.innerHTML = '<div style="font-size:.78rem;color:var(--muted);text-align:center;padding:1rem;">Aún no hay clientes. Créalos en la pestaña "+ Nuevo"</div>';
+      return;
+    }
+    el.innerHTML = users.map(u => {
+      const initials = u.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+      return `<div class="gym-cl-c" onclick="openClientEditor('${u.email}')">
+        <div class="gym-cl-av">${initials}</div>
+        <div><div class="gym-cl-nm">${u.nombre}</div><div class="gym-cl-pl">${u.plan || 'Sin plan'} · ${u.email}</div></div>
+        <svg style="margin-left:auto;opacity:.4;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>`;
+    }).join('');
+  }
+
+  function adminTab(tab, btn) {
+    document.querySelectorAll('#gymAdminDash .gym-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('admTabClientes').style.display = tab === 'clientes' ? '' : 'none';
+    document.getElementById('admTabAgregar').style.display  = tab === 'agregar'  ? '' : 'none';
+    document.getElementById('admEditor').style.display = 'none';
+  }
+
+  function addCliente() {
+    const nombre = document.getElementById('nNombre').value.trim();
+    const email  = document.getElementById('nEmail').value.trim().toLowerCase();
+    const pass   = document.getElementById('nPass').value.trim();
+    const plan   = document.getElementById('nPlan').value.trim();
+    const planI  = document.getElementById('nInicio').value;
+    const planF  = document.getElementById('nFin').value;
+    const planV  = document.getElementById('nValor').value.trim();
+    const msgEl  = document.getElementById('msgAdd');
+    if (!nombre || !email || !pass) { msgEl.style.color='#ff5a5a'; msgEl.textContent = 'Nombre, email y contraseña son obligatorios'; return; }
+    const users = DB.users();
+    if (users.find(u => u.email === email)) { msgEl.style.color='#ff5a5a'; msgEl.textContent = 'Ya existe un cliente con ese email'; return; }
+    users.push({ nombre, email, password: pass, plan, planI, planF, planV });
+    DB.saveUsers(users);
+    msgEl.style.color = 'var(--green)';
+    msgEl.textContent = `✓ Cliente ${nombre} creado correctamente`;
+    ['nNombre','nEmail','nPass','nPlan','nInicio','nFin','nValor'].forEach(id => document.getElementById(id).value = '');
+    renderClientList();
+  }
+
+  function openClientEditor(email) {
+    admEdEmail = email;
+    admCalSelDay = null;
+    const u = DB.user(email);
+    const initials = u.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    document.getElementById('admTabClientes').style.display = 'none';
+    document.getElementById('admTabAgregar').style.display  = 'none';
+    const ed = document.getElementById('admEditor');
+    ed.style.display = '';
+    document.getElementById('admEdHdr').innerHTML = `<div class="gym-cl-av">${initials}</div><div><div class="gym-cl-nm">${u.nombre}</div><div class="gym-cl-pl">${u.email}</div></div>`;
+    // Cargar medidas
+    const med = DB.medidas(email) || {};
+    ['Peso','Estatura','Grasa','Musculo','IMC','IMM','Perim'].forEach(k => {
+      const el = document.getElementById('e'+k);
+      if (el) el.value = med[k.toLowerCase()] ?? '';
+    });
+    renderAdmCal();
+    renderAdmMeals();
+    edTab('medidas', document.querySelector('#gymAdminDash .gym-tab'));
+  }
+
+  function backToList() {
+    admEdEmail = null;
+    document.getElementById('admEditor').style.display = 'none';
+    document.getElementById('admTabClientes').style.display = '';
+    renderClientList();
+  }
+
+  function edTab(tab, btn) {
+    document.querySelectorAll('#admEditor .gym-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('edMedidas').style.display  = tab === 'medidas'  ? '' : 'none';
+    document.getElementById('edCal').style.display      = tab === 'cal'      ? '' : 'none';
+    document.getElementById('edComidas').style.display  = tab === 'comidas'  ? '' : 'none';
+    if (tab === 'cal') renderAdmCal();
+    if (tab === 'comidas') renderAdmMeals();
+  }
+
+  function saveMedidas() {
+    if (!admEdEmail) return;
+    const d = {
+      peso:      document.getElementById('ePeso').value,
+      estatura:  document.getElementById('eEstatura').value,
+      grasa:     document.getElementById('eGrasa').value,
+      musculo:   document.getElementById('eMusculo').value,
+      imc:       document.getElementById('eIMC').value,
+      imm:       document.getElementById('eIMM').value,
+      perimetro: document.getElementById('ePerim').value,
+    };
+    DB.saveMedidas(admEdEmail, d);
+    const msgEl = document.getElementById('msgMed');
+    msgEl.textContent = '✓ Medidas guardadas'; setTimeout(() => msgEl.textContent='', 2500);
+  }
+
+  function renderAdmCal() {
+    if (!admEdEmail) return;
+    const cal  = DB.cal(admEdEmail);
+    const hoy  = new Date();
+    const grid = document.getElementById('admCalGrid');
+    grid.innerHTML = '';
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(hoy); d.setDate(hoy.getDate() - hoy.getDay() + i);
+      const key = d.toISOString().split('T')[0];
+      const entry = cal[key];
+      const div = document.createElement('div');
+      div.className = 'gym-cal-d' + (entry ? ' has-workout' : '');
+      div.innerHTML = `<div class="gym-cal-dn">${DIAS[d.getDay()]}</div><div class="gym-cal-dd">${d.getDate()}</div>${entry?'<div class="gym-cal-dot"></div>':''}`;
+      div.onclick = () => selectAdmCalDay(key, d);
+      grid.appendChild(div);
+    }
+  }
+
+  function selectAdmCalDay(key, d) {
+    admCalSelDay = key;
+    const cal = DB.cal(admEdEmail);
+    const entry = cal[key] || {};
+    document.getElementById('admCalDayLbl').textContent = `${DIAS[d.getDay()]} ${d.getDate()} — Entrenamiento`;
+    document.getElementById('calEj').value  = entry.ejercicio || '';
+    document.getElementById('calSer').value = entry.series   || '';
+    document.getElementById('calRep').value = entry.reps     || '';
+    document.getElementById('calNot').value = entry.notas    || '';
+    const form = document.getElementById('admCalForm');
+    form.style.display = 'flex';
+    document.getElementById('admCalHint').style.display = 'none';
+  }
+
+  function saveCalDay() {
+    if (!admEdEmail || !admCalSelDay) return;
+    const cal = DB.cal(admEdEmail);
+    cal[admCalSelDay] = {
+      ejercicio: document.getElementById('calEj').value,
+      series:    document.getElementById('calSer').value,
+      reps:      document.getElementById('calRep').value,
+      notas:     document.getElementById('calNot').value,
+    };
+    DB.saveCal(admEdEmail, cal);
+    renderAdmCal();
+    const msgEl = document.getElementById('msgCal');
+    msgEl.textContent = '✓ Guardado'; setTimeout(() => msgEl.textContent='', 2000);
+  }
+
+  function addComida() {
+    if (!admEdEmail) return;
+    const tipo = document.getElementById('comTipo').value;
+    const desc = document.getElementById('comDesc').value.trim();
+    const kcal = document.getElementById('comKcal').value;
+    if (!desc) return;
+    const meals = DB.meals(admEdEmail);
+    meals.push({ tipo, desc, kcal });
+    DB.saveMeals(admEdEmail, meals);
+    document.getElementById('comDesc').value = '';
+    document.getElementById('comKcal').value = '';
+    renderAdmMeals();
+    const msgEl = document.getElementById('msgCom');
+    msgEl.textContent = '✓ Agregada'; setTimeout(() => msgEl.textContent='', 2000);
+  }
+
+  function renderAdmMeals() {
+    if (!admEdEmail) return;
+    const meals = DB.meals(admEdEmail);
+    const el = document.getElementById('admComList');
+    if (!meals.length) { el.innerHTML = ''; return; }
+    el.innerHTML = meals.map((m, i) =>
+      `<div style="background:#181820;border:1px solid #1e1e2a;border-radius:9px;padding:.7rem .9rem;display:flex;align-items:center;gap:.6rem;">
+        <span style="flex:1;font-size:.78rem;color:#fff;">${m.tipo} — ${m.desc}${m.kcal?' ('+m.kcal+' kcal)':''}</span>
+        <button onclick="delComida(${i})" style="background:rgba(255,60,60,.15);color:#ff5a5a;border-radius:6px;padding:.2rem .5rem;font-size:.7rem;">✕</button>
+      </div>`
+    ).join('');
+  }
+
+  function delComida(i) {
+    const meals = DB.meals(admEdEmail);
+    meals.splice(i, 1);
+    DB.saveMeals(admEdEmail, meals);
+    renderAdmMeals();
+  }
+
+  // Restaurar sesión al cargar
+  (function() {
+    const s = DB.session();
+    if (!s) return;
+    currentEmail = s.email;
+    if (s.role === 'admin') {
+      updateNavUser('Admin', 'AD');
+    } else {
+      const u = DB.user(s.email);
+      if (!u) { DB.clearSession(); return; }
+      const initials = u.nombre.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+      updateNavUser(u.nombre.split(' ')[0], initials);
+    }
+  })();
 </script>
 <!-- POPUP LEAD CAPTURE -->
 <div class="lead-popup-bg" id="leadPopup">
